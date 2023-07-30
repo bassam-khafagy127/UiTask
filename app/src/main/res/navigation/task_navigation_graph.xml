@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/task_navigation_graph"
+    app:startDestination="@id/createTaskFragment">
+
+    <fragment
+        android:id="@+id/createTaskFragment"
+        android:name="com.example.uitask.fragments.CreateTaskFragment"
+        android:label="CreateTaskFragment" >
+        <action
+            android:id="@+id/action_createTaskFragment_to_showTaskFragment"
+            app:destination="@id/showTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showTaskFragment"
+        android:name="com.example.uitask.fragments.ShowTaskFragment"
+        android:label="ShowTaskFragment" />
+</navigation>
