@@ -6,6 +6,7 @@ import com.example.uitask.data.local.task.Description
 import com.example.uitask.data.local.task.Subject
 
 data class Task(
+    val id: Int,
     val subject: Subject,
     val description: Description?,
     val definitionOfDone: DefinitionOfDone?,

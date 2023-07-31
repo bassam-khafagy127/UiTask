@@ -13,11 +13,11 @@
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/back_btn"
+            android:background="@color/transparent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
-            android:background="@color/transparent"
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:src="@drawable/ic_arrow_back"
@@ -31,7 +31,7 @@
             android:layout_marginStart="16dp"
             android:background="@color/transparent"
             android:src="@drawable/ic_arrow_back"
-            tools:text="@string/t_5453"
+            android:text="@string/t_5453"
             android:textAppearance="@style/medium"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -98,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/dummyDate"
+            tools:text="@string/dummyDate"
             app:layout_constraintStart_toStartOf="@id/taskTitle"
             app:layout_constraintTop_toBottomOf="@id/twoLine_iv" />
 
@@ -194,21 +194,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/description"
+            tools:text="@string/description"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/twoLine_iv"
             app:layout_constraintTop_toBottomOf="@id/senderRollTv" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/description_message_tv"
+        <androidx.appcompat.widget.AppCompatEditText
             style="@style/light"
+            android:id="@+id/description_message_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:editable="false"
+            android:maxLines="2"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:maxHeight="35dp"
             android:textSize="16sp"
+            android:scrollbars="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/description_tv"
@@ -240,6 +243,7 @@
 
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:background="@color/transparent"
             android:id="@+id/definitionOfDone_tv"
             style="@style/medium"
             android:layout_width="wrap_content"
@@ -250,7 +254,9 @@
             app:layout_constraintStart_toStartOf="@id/twoLine_iv"
             app:layout_constraintTop_toBottomOf="@id/audio_progress" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatEditText
+            android:background="@color/transparent"
+            android:editable="false"
             android:id="@+id/definitionOfDone_message_tv"
             style="@style/light"
             android:layout_width="0dp"
@@ -258,7 +264,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:maxHeight="35dp"
+            android:maxLines="2"
+            android:scrollbars="vertical"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -287,7 +294,7 @@
                 android:textColor="@color/redTextColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="@string/_1_day_over_due" />
+                android:text="@string/_1_day_over_due" />
 
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -363,6 +370,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toStartOf="@id/act_tv"
                 android:text="@string/expected"
                 android:textColor="@color/violetBtnColors"
                 app:layout_constraintStart_toStartOf="@id/horizontalLine"
@@ -382,6 +391,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toEndOf="@id/exp_tv"
                 android:layout_marginEnd="100dp"
                 android:text="@string/actual"
                 android:textColor="@color/violetBtnColors"

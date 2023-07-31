@@ -27,13 +27,17 @@
             app:destination="@id/createLocationTaskFragment" />
         <action
             android:id="@+id/action_createTaskFragment_to_notificationListFragment"
-            app:destination="@id/notificationListFragment" />
+            app:destination="@id/tasksListFragment" />
     </fragment>
     <fragment
         android:id="@+id/showTaskFragment"
         android:name="com.example.uitask.fragments.ShowTaskFragment"
         android:label="ShowTaskFragment"
-        tools:layout="@layout/fragment_show_task" />
+        tools:layout="@layout/fragment_show_task" >
+        <argument
+            android:name="task_id"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/createClassicTaskFragment"
         android:name="com.example.uitask.fragments.CreateClassicTaskFragment"
@@ -61,8 +65,12 @@
         android:label="CreateLocationTaskFragment"
         tools:layout="@layout/fragment_create_location_task" />
     <fragment
-        android:id="@+id/notificationListFragment"
+        android:id="@+id/tasksListFragment"
         android:name="com.example.uitask.fragments.TasksListFragment"
-        android:label="NotificationListFragment"
-        tools:layout="@layout/fragment_tasks_list" />
+        android:label="TasksListFragment"
+        tools:layout="@layout/fragment_tasks_list" >
+        <action
+            android:id="@+id/action_tasksListFragment_to_showTaskFragment"
+            app:destination="@id/showTaskFragment" />
+    </fragment>
 </navigation>

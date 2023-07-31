@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.uitask.R
 import com.example.uitask.adapters.TaskAdapter
@@ -30,10 +30,10 @@ class TasksListFragment : Fragment(R.layout.fragment_tasks_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpRecycler()
+        setUpRecycler(view)
     }
 
-    private fun setUpRecycler() {
+    private fun setUpRecycler(view: View) {
         val notifications = tasksComposition()
 
         binding.apply {
@@ -42,11 +42,13 @@ class TasksListFragment : Fragment(R.layout.fragment_tasks_list) {
                     notifications,
                     object : TaskAdapter.TaskInterActionListener {
                         override fun onClickTask(task: Task) {
-                            Toast.makeText(
-                                requireContext(),
-                                task.subject.subjectString,
-                                Toast.LENGTH_LONG
-                            ).show()
+
+                            val action =
+                                TasksListFragmentDirections.actionTasksListFragmentToShowTaskFragment(
+                                    task.id
+                                )
+                            Navigation.findNavController(view).navigate(action)
+
                         }
                     })
 
@@ -55,11 +57,6 @@ class TasksListFragment : Fragment(R.layout.fragment_tasks_list) {
             binding.notificationRv.adapter = adapter
         }
     }
-
-
-
-
-
 
 
     private fun tasksComposition(): List<Task> {
@@ -74,6 +71,7 @@ class TasksListFragment : Fragment(R.layout.fragment_tasks_list) {
         val dateRange2 = DateRange("22:11:2023", "25:12:2023")
 
         val task1 = Task(
+            0,
             subject1,
             description1,
             definitionOfDone1,
@@ -89,6 +87,7 @@ class TasksListFragment : Fragment(R.layout.fragment_tasks_list) {
             null
         )
         val task2 = Task(
+            1,
             subject2,
             description2,
             definitionOfDone2,
@@ -104,20 +103,9 @@ class TasksListFragment : Fragment(R.layout.fragment_tasks_list) {
             null
         )
 
-        val notifications = listOf(
-            task1,
-            task2,
-            task1,
-            task2,
-            task1,
-            task2,
-            task1,
-            task2,
-            task1,
-            task2,
+        return listOf(
             task1,
             task2
         )
-        return notifications
     }
 }
