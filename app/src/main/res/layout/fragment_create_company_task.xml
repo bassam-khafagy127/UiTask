@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="8dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- subject-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -97,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="2dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- description-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -169,7 +169,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="4dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- definition of don -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -242,7 +242,7 @@
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="4dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- record -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -284,7 +284,7 @@
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- assignees-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -350,7 +350,7 @@
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- cc assignees-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -403,7 +403,7 @@
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="14dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- date-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -458,7 +458,7 @@
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="14dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- Expected working hours-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -513,7 +513,7 @@
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="14dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
 
             <!-- Repeat-->
@@ -620,7 +620,7 @@
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="14dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!--Priority-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -673,7 +673,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="16dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- TO DO -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -728,7 +728,7 @@
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="14dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- attachment -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -772,7 +772,7 @@
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="14dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- Select Project -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -814,7 +814,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginTop="16dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
         </LinearLayout>
     </ScrollView>

@@ -38,11 +38,11 @@ class CreateTaskFragment : Fragment(R.layout.fragment_create_task) {
 
         TabLayoutMediator(binding.createTaskTabLayout, binding.homeViewPager) { tap, position ->
             when (position) {
-                0 -> tap.text = "Classic"
-                1 -> tap.text = "Location"
-                2 -> tap.text = "Meetings"
-                3 -> tap.text = "KPI"
-                4 -> tap.text = "Company"
+                0 -> tap.text = this.getString(R.string.classic)
+                1 -> tap.text = this.getString(R.string.location)
+                2 -> tap.text = this.getString(R.string.meetings)
+                3 -> tap.text = this.getString(R.string.kpi)
+                4 -> tap.text = this.getString(R.string.company)
             }
         }.attach()
     }

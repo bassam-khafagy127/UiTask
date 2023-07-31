@@ -71,6 +71,8 @@
                     android:layout_marginBottom="6dp"
                     android:background="@color/transparent"
                     android:hint="@string/subject"
+                    android:textColor="@color/hintTextColor"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/subjectMicrophone_Iv"
                     app:layout_constraintStart_toStartOf="@id/subjectFieldTv"
@@ -89,9 +91,9 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="1px"
                 android:layout_marginTop="2dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- description-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -132,6 +134,8 @@
                     android:layout_marginEnd="6dp"
                     android:layout_marginBottom="6dp"
                     android:background="@color/transparent"
+                    android:textColor="@color/hintTextColor"
+                    android:textSize="14sp"
                     android:hint="@string/description"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/textCase_state"
@@ -161,9 +165,9 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="1px"
                 android:layout_marginTop="4dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- definition of don -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -205,6 +209,8 @@
                     android:layout_marginBottom="6dp"
                     android:background="@color/transparent"
                     android:hint="@string/description"
+                    android:textColor="@color/hintTextColor"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/definitionOfDone_textCase_state"
                     app:layout_constraintStart_toStartOf="@id/definitionOfDoneFieldTv"
@@ -233,10 +239,10 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="1px"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="4dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- record -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -275,10 +281,10 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="1px"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="@color/splitterViewColor" />
+                android:layout_marginBottom="14dp"
+                android:background="@color/hintTextColor" />
 
             <!-- assignees-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -290,7 +296,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="4dp"
                     android:scaleType="center"
                     android:src="@drawable/ic_two_persons"
                     app:layout_constraintStart_toStartOf="parent"
@@ -302,7 +308,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="4dp"
                     android:gravity="center"
                     android:text="@string/assignees"
                     android:textColor="@color/textColorBlack"
@@ -322,7 +328,8 @@
                     android:textColor="@color/violetBtnColors"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@id/assigneesFieldTv"
-                    app:layout_constraintStart_toEndOf="@id/assigneesFieldTv" />
+                    app:layout_constraintStart_toEndOf="@id/assigneesFieldTv"
+                    app:layout_constraintTop_toTopOf="@id/assigneesFieldTv" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/assigneesValue_ed"
@@ -331,6 +338,8 @@
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="6dp"
+                    android:textSize="14sp"
+
                     android:background="@color/transparent"
                     android:hint="@string/description"
                     android:src="@drawable/ic_add_person"
@@ -341,10 +350,10 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="1px"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- cc assignees-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -394,10 +403,10 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="1px"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="14dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- date-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -442,17 +451,18 @@
                     android:textColor="@color/violetBtnColors"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@id/dateFieldTv"
-                    app:layout_constraintStart_toEndOf="@id/dateFieldTv" />
+                    app:layout_constraintStart_toEndOf="@id/dateFieldTv"
+                    app:layout_constraintTop_toTopOf="@id/dateFieldTv" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="1px"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="14dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- Expected working hours-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -497,17 +507,17 @@
                     android:textColor="@color/violetBtnColors"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@id/expected_working_hoursFieldTv"
-                    app:layout_constraintStart_toEndOf="@id/expected_working_hoursFieldTv" />
-
+                    app:layout_constraintStart_toEndOf="@id/expected_working_hoursFieldTv"
+                    app:layout_constraintTop_toTopOf="@id/expected_working_hoursFieldTv" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="1px"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="14dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
 
             <!-- Repeat-->
@@ -543,7 +553,7 @@
                     app:layout_constraintTop_toTopOf="@id/repeatIconIv" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/repeatStateTv"
+                    android:id="@+id/repeatFieldStateTv"
                     style="@style/medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -553,8 +563,8 @@
                     android:textColor="@color/violetBtnColors"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@id/repeatFieldTv"
-                    app:layout_constraintStart_toEndOf="@id/repeatFieldTv" />
-
+                    app:layout_constraintStart_toEndOf="@id/repeatFieldTv"
+                    app:layout_constraintTop_toTopOf="@id/repeatFieldTv" />
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -611,10 +621,10 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="1px"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="14dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!--Priority-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -659,15 +669,16 @@
                     android:textColor="@color/violetBtnColors"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@id/priorityFieldTv"
-                    app:layout_constraintStart_toEndOf="@id/priorityFieldTv" />
+                    app:layout_constraintStart_toEndOf="@id/priorityFieldTv"
+                    app:layout_constraintTop_toTopOf="@id/priorityFieldTv" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="1px"
                 android:layout_marginTop="16dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- TO DO -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -708,6 +719,8 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="6dp"
+                    android:textColor="@color/hintTextColor"
+                    android:textSize="14sp"
                     android:background="@color/transparent"
                     android:hint="@string/add_todo"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -719,10 +732,10 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="1px"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="14dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- attachment -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -763,10 +776,10 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="1px"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="14dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
             <!-- Select Project -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -794,7 +807,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="2dp"
                     android:gravity="start"
-                    android:text="@string/attachment"
+                    android:text="@string/select_project"
                     android:textColor="@color/textColorBlack"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@id/select_projectIconIv"
@@ -805,11 +818,21 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
+                android:id="@+id/lastSplit"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="1px"
                 android:layout_marginTop="16dp"
-                android:background="@color/splitterViewColor" />
+                android:background="@color/hintTextColor" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/blueButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:layout_marginBottom="40dp"
+                android:text="@string/create_task" />
         </LinearLayout>
     </ScrollView>
 </layout>

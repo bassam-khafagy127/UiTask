@@ -15,4 +15,12 @@
     <string name="to_do_list">To Do List</string>
     <string name="add_todo">Add ToDo</string>
     <string name="priority">Priority</string>
+    <string name="select_project">Select Project</string>
+    <string name="create_task">Create Task</string>
+    <string name="classic">Classic</string>
+    <string name="location">Location</string>
+    <string name="meetings">Meetings</string>
+    <string name="kpi">KPI</string>
+    <string name="company">Company</string>
+    <string name="t_5453">T-5453</string>
 </resources>

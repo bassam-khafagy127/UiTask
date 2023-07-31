@@ -8,5 +8,5 @@
     <color name="violetBtnColors">#7B55D3</color>
 
     <color name="textColorBlack">#323232</color>
-    <color name="splitterViewColor">#9D9D9D</color>
+    <color name="hintTextColor">#9D9D9D</color>
 </resources>
