@@ -62,7 +62,7 @@
         tools:layout="@layout/fragment_create_location_task" />
     <fragment
         android:id="@+id/notificationListFragment"
-        android:name="com.example.uitask.fragments.NotificationListFragment"
+        android:name="com.example.uitask.fragments.TasksListFragment"
         android:label="NotificationListFragment"
-        tools:layout="@layout/fragment_notification_list" />
+        tools:layout="@layout/fragment_tasks_list" />
 </navigation>

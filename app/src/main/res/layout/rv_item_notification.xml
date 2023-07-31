@@ -5,11 +5,19 @@
 
     <data>
 
+        <variable
+            name="item"
+            type="com.example.uitask.data.local.Task" />
+
+        <variable
+            name="listener"
+            type="com.example.uitask.adapters.TaskAdapter.TaskInterActionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:onClick="@{()-> listener.onClickTask(item)}">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/notification_date"
@@ -21,7 +29,7 @@
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/dummyDate" />
+            android:text="@string/dummyDate" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -49,7 +57,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="@string/task"
+                android:text="@{item.subject.subjectString}"
+                tools:text="@string/task"
                 android:textColor="@color/textColorBlack"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@id/profile_iv"
@@ -67,7 +76,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/notification_type_tv"
                 app:layout_constraintTop_toBottomOf="@id/notification_type_tv"
-                tools:text="@string/task_assigned_to_you_by_ceo" />
+                android:text="@string/task_assigned_to_you_by_ceo" />
 
 
             <androidx.appcompat.widget.AppCompatTextView
