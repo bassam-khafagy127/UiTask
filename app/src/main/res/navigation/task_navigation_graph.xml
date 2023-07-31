@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_createTaskFragment_to_createLocationTaskFragment"
             app:destination="@id/createLocationTaskFragment" />
+        <action
+            android:id="@+id/action_createTaskFragment_to_notificationListFragment"
+            app:destination="@id/notificationListFragment" />
     </fragment>
     <fragment
         android:id="@+id/showTaskFragment"
@@ -56,5 +59,10 @@
         android:id="@+id/createLocationTaskFragment"
         android:name="com.example.uitask.fragments.CreateLocationTaskFragment"
         android:label="CreateLocationTaskFragment"
-        tools:layout="@layout/fragment_create_location_task"/>
+        tools:layout="@layout/fragment_create_location_task" />
+    <fragment
+        android:id="@+id/notificationListFragment"
+        android:name="com.example.uitask.fragments.NotificationListFragment"
+        android:label="NotificationListFragment"
+        tools:layout="@layout/fragment_notification_list" />
 </navigation>

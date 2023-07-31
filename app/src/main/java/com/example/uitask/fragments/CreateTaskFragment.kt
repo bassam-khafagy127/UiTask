@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.example.uitask.R
 import com.example.uitask.adapters.ViewPager2Adapter
 import com.example.uitask.databinding.FragmentCreateTaskBinding
@@ -23,12 +24,28 @@ class CreateTaskFragment : Fragment(R.layout.fragment_create_task) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        tabLayoutHandle()
+        setUpCallBacks(view)
+    }
+
+    private fun setUpCallBacks(view: View) {
+        binding.apply {
+            backBtn.setOnClickListener {
+                val action =
+                    CreateTaskFragmentDirections.actionCreateTaskFragmentToNotificationListFragment()
+                Navigation.findNavController(view).navigate(action)
+            }
+        }
+    }
+
+    private fun tabLayoutHandle() {
         val fragmentsCategories: List<Fragment> = arrayListOf(
             CreateClassicTaskFragment(),
-            CreateClassicTaskFragment(),
-            CreateClassicTaskFragment(),
-            CreateClassicTaskFragment(),
-            CreateClassicTaskFragment()
+            CreateLocationTaskFragment(),
+            CreateMeetingsTaskFragment(),
+            CreateKPITaskFragment(),
+            CreateCompanyTaskFragment()
         )
 
         val viewPager2Adapter =

@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/fragmentTitle"
+            android:id="@+id/fragmentTaskTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -39,5 +39,396 @@
             app:layout_constraintStart_toEndOf="@id/back_btn"
             app:layout_constraintTop_toTopOf="@id/back_btn" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/menu_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_vertical_dots"
+            app:layout_constraintBottom_toBottomOf="@id/fragmentTaskTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/fragmentTaskTitle" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/history_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_history"
+            app:layout_constraintBottom_toBottomOf="@id/menu_iv"
+            app:layout_constraintEnd_toStartOf="@id/menu_iv"
+            app:layout_constraintTop_toTopOf="@id/menu_iv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/chat_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_messages"
+            app:layout_constraintBottom_toBottomOf="@id/history_iv"
+            app:layout_constraintEnd_toStartOf="@id/history_iv"
+            app:layout_constraintTop_toTopOf="@id/history_iv" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/twoLine_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_two_lines"
+            app:layout_constraintStart_toStartOf="@id/back_btn"
+            app:layout_constraintTop_toBottomOf="@id/back_btn" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/taskTitle"
+            style="@style/regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/twoLine_iv"
+            app:layout_constraintStart_toEndOf="@id/twoLine_iv"
+            app:layout_constraintTop_toTopOf="@id/twoLine_iv"
+            tools:text="@string/review_the_device_you_are_working_on" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/taskDate"
+            style="@style/light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/dummyDate"
+            app:layout_constraintStart_toStartOf="@id/taskTitle"
+            app:layout_constraintTop_toBottomOf="@id/twoLine_iv" />
+
+        <View
+            android:id="@+id/headerSplit"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="16dp"
+            android:background="@color/hintTextColor"
+            app:layout_constraintTop_toBottomOf="@id/taskDate" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sender_iv"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_person"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerSplit" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/senderNameTv"
+            style="@style/light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:maxLength="9"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/sender_iv"
+            app:layout_constraintStart_toEndOf="@id/sender_iv"
+            app:layout_constraintTop_toTopOf="@id/sender_iv"
+            tools:text="@string/moezeldin_elbakshishi" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/senderRollTv"
+            style="@style/light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/senderNameTv"
+            app:layout_constraintTop_toBottomOf="@id/senderNameTv"
+            tools:text="@string/cto" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/arrowTo_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_to_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerSplit" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/receiver_iv"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_person"
+            app:layout_constraintStart_toEndOf="@id/arrowTo_iv"
+            app:layout_constraintTop_toBottomOf="@id/headerSplit" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/receiverNameTv"
+            style="@style/light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:maxLength="9"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/receiver_iv"
+            app:layout_constraintStart_toEndOf="@id/receiver_iv"
+            app:layout_constraintTop_toTopOf="@id/receiver_iv"
+            tools:text="@string/moezeldin_elbakshishi" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/receiverRollTv"
+            style="@style/light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/receiverNameTv"
+            app:layout_constraintTop_toBottomOf="@id/receiverNameTv"
+            tools:text="@string/cto" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/description_tv"
+            style="@style/medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/description"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/twoLine_iv"
+            app:layout_constraintTop_toBottomOf="@id/senderRollTv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/description_message_tv"
+            style="@style/light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:maxHeight="35dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_tv"
+            tools:text="@string/dummyWarn" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/playDescription_audion_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_play_v"
+            app:layout_constraintStart_toStartOf="@id/description_message_tv"
+            app:layout_constraintTop_toBottomOf="@id/description_message_tv" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/audio_progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="70dp"
+            android:progress="20"
+            app:indicatorColor="@color/violetBtnColors"
+            app:layout_constraintBottom_toBottomOf="@id/playDescription_audion_iv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/playDescription_audion_iv"
+            app:layout_constraintTop_toTopOf="@id/playDescription_audion_iv" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/definitionOfDone_tv"
+            style="@style/medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/description"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/twoLine_iv"
+            app:layout_constraintTop_toBottomOf="@id/audio_progress" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/definitionOfDone_message_tv"
+            style="@style/light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:maxHeight="35dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/definitionOfDone_tv"
+            tools:text="@string/dummy_defOfDone" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_view"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/cardview8radious_bg"
+            android:elevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/definitionOfDone_message_tv">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/over_due_bg"
+                android:padding="8dp"
+                android:textColor="@color/redTextColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/_1_day_over_due" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/start_oval"
+                android:layout_width="@dimen/_6sdp"
+                android:layout_height="@dimen/_6sdp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/gray_oval"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/vertical_dots_view"
+                android:layout_width="@dimen/_6sdp"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/vertical_dots"
+                app:layout_constraintBottom_toTopOf="@id/end_oval"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/start_oval" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/end_oval"
+                android:layout_width="@dimen/_6sdp"
+                android:layout_height="@dimen/_6sdp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="45dp"
+                android:src="@drawable/red_oval"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/startDateView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/start_date"
+                app:layout_constraintBottom_toBottomOf="@id/start_oval"
+                app:layout_constraintStart_toEndOf="@id/start_oval"
+                app:layout_constraintTop_toTopOf="@id/start_oval" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/startDate_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/startDateView"
+                app:layout_constraintTop_toBottomOf="@id/startDateView"
+                tools:text="@string/dummyDAte2" />
+
+
+            <View
+                android:id="@+id/horizontalLine"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:foreground="@color/violetBtnColors"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vertical_dots_view"
+                app:layout_constraintTop_toBottomOf="@id/startDate_tv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/exp_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/expected"
+                android:textColor="@color/violetBtnColors"
+                app:layout_constraintStart_toStartOf="@id/horizontalLine"
+                app:layout_constraintTop_toBottomOf="@id/horizontalLine" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/expected_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/exp_tv"
+                app:layout_constraintStart_toStartOf="@id/exp_tv"
+                app:layout_constraintTop_toBottomOf="@id/exp_tv"
+                tools:text="@string/_1_hour" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/act_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="100dp"
+                android:text="@string/actual"
+                android:textColor="@color/violetBtnColors"
+                app:layout_constraintEnd_toEndOf="@id/horizontalLine"
+                app:layout_constraintTop_toBottomOf="@id/horizontalLine" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actual_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/act_tv"
+                app:layout_constraintStart_toStartOf="@id/act_tv"
+                app:layout_constraintTop_toBottomOf="@id/act_tv"
+                tools:text="@string/_0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/endDateView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/end_date"
+                app:layout_constraintBottom_toBottomOf="@id/end_oval"
+                app:layout_constraintStart_toEndOf="@id/end_oval"
+                app:layout_constraintTop_toTopOf="@id/end_oval" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/endDate_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/endDateView"
+                app:layout_constraintTop_toBottomOf="@id/endDateView"
+                tools:text="@string/dummyDAte2" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/blueButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:layout_marginBottom="40dp"
+            android:text="@string/start_task"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_view" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
