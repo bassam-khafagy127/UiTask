@@ -1,19 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/task_navigation_graph"
     app:startDestination="@id/createTaskFragment">
 
     <fragment
         android:id="@+id/createTaskFragment"
         android:name="com.example.uitask.fragments.CreateTaskFragment"
-        android:label="CreateTaskFragment" >
+        android:label="CreateTaskFragment"
+        tools:layout="@layout/fragment_create_task">
         <action
-            android:id="@+id/action_createTaskFragment_to_showTaskFragment"
-            app:destination="@id/showTaskFragment" />
+            android:id="@+id/action_createTaskFragment_to_createClassicTaskFragment"
+            app:destination="@id/createClassicTaskFragment" />
+        <action
+            android:id="@+id/action_createTaskFragment_to_createCompanyTaskFragment"
+            app:destination="@id/createCompanyTaskFragment" />
+        <action
+            android:id="@+id/action_createTaskFragment_to_createKPITaskFragment"
+            app:destination="@id/createKPITaskFragment" />
+        <action
+            android:id="@+id/action_createTaskFragment_to_createMeetingsTaskFragment"
+            app:destination="@id/createMeetingsTaskFragment" />
+        <action
+            android:id="@+id/action_createTaskFragment_to_createLocationTaskFragment"
+            app:destination="@id/createLocationTaskFragment" />
     </fragment>
     <fragment
         android:id="@+id/showTaskFragment"
         android:name="com.example.uitask.fragments.ShowTaskFragment"
-        android:label="ShowTaskFragment" />
+        android:label="ShowTaskFragment"
+        tools:layout="@layout/fragment_show_task" />
+    <fragment
+        android:id="@+id/createClassicTaskFragment"
+        android:name="com.example.uitask.fragments.CreateClassicTaskFragment"
+        android:label="CreateClassicTaskFragment"
+        tools:layout="@layout/fragment_create_classic_task" />
+    <fragment
+        android:id="@+id/createCompanyTaskFragment"
+        android:name="com.example.uitask.fragments.CreateCompanyTaskFragment"
+        android:label="CreateCompanyTaskFragment"
+        tools:layout="@layout/fragment_create_company_task" />
+
+    <fragment
+        android:id="@+id/createKPITaskFragment"
+        android:name="com.example.uitask.fragments.CreateKPITaskFragment"
+        android:label="CreateKPITaskFragment"
+        tools:layout="@layout/fragment_create_kpi_task"/>
+    <fragment
+        android:id="@+id/createMeetingsTaskFragment"
+        android:name="com.example.uitask.fragments.CreateMeetingsTaskFragment"
+        android:label="CreateMeetingsTaskFragment"
+        tools:layout="@layout/fragment_create_metings_task" />
+    <fragment
+        android:id="@+id/createLocationTaskFragment"
+        android:name="com.example.uitask.fragments.CreateLocationTaskFragment"
+        android:label="CreateLocationTaskFragment"
+        tools:layout="@layout/fragment_create_location_task"/>
 </navigation>

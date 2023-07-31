@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">UiTask</string>
+    <string name="create_voting_request">Create Voting / Request</string>
+    <string name="subject">Subject</string>
+    <string name="required">Required</string>
+    <string name="description">Description</string>
+    <string name="definition_of_done">Definition of done</string>
+    <string name="record_note">Record note</string>
+    <string name="assignees">Assignees</string>
+    <string name="cc_assignees">CC Assignees</string>
+    <string name="date_time"><![CDATA[Date & Time]]></string>
+    <string name="expected_working_hours">Expected working hours</string>
+    <string name="repeat">Repeat</string>
+    <string name="attachment">Attachment</string>
+    <string name="to_do_list">To Do List</string>
+    <string name="add_todo">Add ToDo</string>
+    <string name="priority">Priority</string>
 </resources>
