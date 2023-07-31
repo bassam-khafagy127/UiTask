@@ -58,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="@{item.subject.subjectString}"
+                android:text="@{item.subjectString}"
                 tools:text="@string/task"
                 android:textColor="@color/textColorBlack"
                 android:textSize="12sp"

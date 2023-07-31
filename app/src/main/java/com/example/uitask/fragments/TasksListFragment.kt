@@ -10,10 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.uitask.R
 import com.example.uitask.adapters.TaskAdapter
 import com.example.uitask.data.local.Task
-import com.example.uitask.data.local.task.DateRange
-import com.example.uitask.data.local.task.DefinitionOfDone
-import com.example.uitask.data.local.task.Description
-import com.example.uitask.data.local.task.Subject
 import com.example.uitask.databinding.FragmentTasksListBinding
 
 class TasksListFragment : Fragment(R.layout.fragment_tasks_list) {
@@ -60,25 +56,19 @@ class TasksListFragment : Fragment(R.layout.fragment_tasks_list) {
 
 
     private fun tasksComposition(): List<Task> {
-        val subject1 = Subject("Test1Subject", null)
-        val description1 = Description("Test1Description", null)
-        val definitionOfDone1 = DefinitionOfDone("Test1definitionOfDone", null)
-        val dateRange1 = DateRange("25:11:2023", "25:12:2023")
-
-        val subject2 = Subject("Test2Subject", null)
-        val description2 = Description("Test2Description", null)
-        val definitionOfDone2 = DefinitionOfDone("Test2definitionOfDone", null)
-        val dateRange2 = DateRange("22:11:2023", "25:12:2023")
 
         val task1 = Task(
-            0,
-            subject1,
-            description1,
-            definitionOfDone1,
+            0, "SujectString1",
+            null,
+            "DescriptionString",
+            null,
+            "Definition1",
             null,
             null,
             null,
-            dateRange1,
+            null,
+            "25:10:2020",
+            "25:10:2023",
             1,
             false,
             "High",
@@ -87,15 +77,18 @@ class TasksListFragment : Fragment(R.layout.fragment_tasks_list) {
             null
         )
         val task2 = Task(
+            1, "SujectString1",
+            null,
+            "DescriptionString",
+            null,
+            "Definition1",
+            null,
+            null,
+            null,
+            null,
+            "25:10:2020",
+            "25:10:2023",
             1,
-            subject2,
-            description2,
-            definitionOfDone2,
-            null,
-            null,
-            null,
-            dateRange2,
-            2,
             false,
             "High",
             null,

@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.uitask.R
 import com.example.uitask.databinding.FragmentCreateLocationTaskBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CreateLocationTaskFragment : Fragment(R.layout.fragment_create_location_task) {
     private lateinit var binding: FragmentCreateLocationTaskBinding
     override fun onCreateView(

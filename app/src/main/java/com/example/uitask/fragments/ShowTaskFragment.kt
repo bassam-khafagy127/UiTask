@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.uitask.R
 import com.example.uitask.databinding.FragmentShowTaskBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ShowTaskFragment : Fragment(R.layout.fragment_show_task) {
     private lateinit var binding: FragmentShowTaskBinding
     private val taskArgs: ShowTaskFragmentArgs by navArgs()

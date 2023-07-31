@@ -1,19 +1,23 @@
 package com.example.uitask.data.local
 
-import com.example.uitask.data.local.task.DateRange
-import com.example.uitask.data.local.task.DefinitionOfDone
-import com.example.uitask.data.local.task.Description
-import com.example.uitask.data.local.task.Subject
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+@Entity(tableName = "Tasks Table")
 data class Task(
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val subject: Subject,
-    val description: Description?,
-    val definitionOfDone: DefinitionOfDone?,
+    val subjectString: String,
+    val subjectVoiceNoteUri: String?,
+    val descriptionString: String,
+    val descriptionVoiceNoteUri: String?,
+    val definitionOfDoneString: String,
+    val definitionOfDoneVoiceNoteUri: String?,
     val voiceNote: String?,
-    val assignees: List<String>?,
-    val ccAssignees: List<String>?,
-    val dateRange: DateRange,
+    val assignees: String?,
+    val ccAssignees: String?,
+    val startDate: String,
+    val endDate: String,
     val expectedWorkingHorus: Int,
     val repeated: Boolean,
     val priority: String,

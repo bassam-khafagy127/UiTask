@@ -825,6 +825,7 @@
                 android:background="@color/hintTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save_btn"
                 style="@style/blueButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

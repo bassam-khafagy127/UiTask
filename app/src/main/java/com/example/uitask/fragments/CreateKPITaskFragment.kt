@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.uitask.R
 import com.example.uitask.databinding.FragmentCreateKpiTaskBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CreateKPITaskFragment : Fragment(R.layout.fragment_create_kpi_task) {
     private lateinit var binding: FragmentCreateKpiTaskBinding
     override fun onCreateView(

@@ -10,7 +10,9 @@ import com.example.uitask.R
 import com.example.uitask.adapters.ViewPager2Adapter
 import com.example.uitask.databinding.FragmentCreateTaskBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CreateTaskFragment : Fragment(R.layout.fragment_create_task) {
     private lateinit var binding: FragmentCreateTaskBinding
     override fun onCreateView(

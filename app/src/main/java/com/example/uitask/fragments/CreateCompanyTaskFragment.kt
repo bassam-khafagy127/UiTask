@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.uitask.R
 import com.example.uitask.databinding.FragmentCreateCompanyTaskBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CreateCompanyTaskFragment : Fragment(R.layout.fragment_create_company_task) {
     private lateinit var binding: FragmentCreateCompanyTaskBinding
     override fun onCreateView(
