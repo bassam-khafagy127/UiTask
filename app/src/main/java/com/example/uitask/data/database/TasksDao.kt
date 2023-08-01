@@ -11,6 +11,9 @@ interface TasksDao {
     suspend fun insertTask(task: Task)
 
     @Query("SELECT*FROM `Tasks Table` ORDER BY id")
-    fun getAllTasks(): List<Task>
+    suspend fun getAllTasks(): List<Task>
+
+    @Query("SELECT * FROM `tasks table` WHERE id = :taskId")
+    fun getTaskById(taskId: Long): Task?
 
 }

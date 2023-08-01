@@ -4,16 +4,29 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.uitask.R
 import com.example.uitask.adapters.TaskAdapter
 import com.example.uitask.data.local.Task
 import com.example.uitask.databinding.FragmentTasksListBinding
+import com.example.uitask.viewModel.TasksViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class TasksListFragment : Fragment(R.layout.fragment_tasks_list) {
     private lateinit var binding: FragmentTasksListBinding
+    private val viewModel by viewModels<TasksViewModel>()
+
+    private var tasks: List<Task> = mutableListOf()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,17 +38,20 @@ class TasksListFragment : Fragment(R.layout.fragment_tasks_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setUpRecycler(view)
+        lifecycleScope.launch {
+            setUpRecycler(view)
+        }
     }
 
-    private fun setUpRecycler(view: View) {
-        val notifications = tasksComposition()
-
+    private suspend fun setUpRecycler(view: View) {
+        lifecycleScope.async(Dispatchers.IO) {
+            tasks = viewModel.getAllTasks()
+        }.await()
         binding.apply {
+
             val adapter =
                 TaskAdapter(
-                    notifications,
+                    tasks,
                     object : TaskAdapter.TaskInterActionListener {
                         override fun onClickTask(task: Task) {
 
@@ -48,57 +64,12 @@ class TasksListFragment : Fragment(R.layout.fragment_tasks_list) {
                         }
                     })
 
+            adapter.setItems(tasks)
             binding.notificationRv.layoutManager =
                 LinearLayoutManager(requireActivity().applicationContext)
             binding.notificationRv.adapter = adapter
         }
+
     }
 
-
-    private fun tasksComposition(): List<Task> {
-
-        val task1 = Task(
-            0, "SujectString1",
-            null,
-            "DescriptionString",
-            null,
-            "Definition1",
-            null,
-            null,
-            null,
-            null,
-            "25:10:2020",
-            "25:10:2023",
-            1,
-            false,
-            "High",
-            null,
-            null,
-            null
-        )
-        val task2 = Task(
-            1, "SujectString1",
-            null,
-            "DescriptionString",
-            null,
-            "Definition1",
-            null,
-            null,
-            null,
-            null,
-            "25:10:2020",
-            "25:10:2023",
-            1,
-            false,
-            "High",
-            null,
-            null,
-            null
-        )
-
-        return listOf(
-            task1,
-            task2
-        )
-    }
 }

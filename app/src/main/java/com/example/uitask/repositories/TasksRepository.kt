@@ -10,7 +10,7 @@ class TasksRepository @Inject constructor(private val taskedInAppDataBase: Taske
         taskedInAppDataBase.tasksDao().insertTask(task)
     }
 
-    suspend fun getAllTasks(): List<Task> {
-        return taskedInAppDataBase.tasksDao().getAllTasks()
-    }
+    suspend fun getAllTasks() = taskedInAppDataBase.tasksDao().getAllTasks()
+
+    suspend fun getTaskById(id: Long) = taskedInAppDataBase.tasksDao().getTaskById(id)
 }
