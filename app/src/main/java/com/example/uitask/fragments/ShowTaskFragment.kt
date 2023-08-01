@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.uitask.R
 import com.example.uitask.databinding.FragmentShowTaskBinding
@@ -51,6 +52,16 @@ class ShowTaskFragment : Fragment(R.layout.fragment_show_task) {
         }
         viewModel.taskLiveDate.observe(viewLifecycleOwner) {
 
+        }
+
+        setUpCallBacks()
+    }
+
+    private fun setUpCallBacks() {
+        binding.apply {
+            backBtn.setOnClickListener {
+                findNavController().popBackStack()
+            }
         }
     }
 }

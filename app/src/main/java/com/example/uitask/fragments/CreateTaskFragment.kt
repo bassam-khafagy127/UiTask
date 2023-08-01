@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.uitask.R
@@ -33,10 +34,15 @@ class CreateTaskFragment : Fragment(R.layout.fragment_create_task) {
 
     private fun setUpCallBacks(view: View) {
         binding.apply {
-            backBtn.setOnClickListener {
+            tasksBtn.setOnClickListener {
                 val action =
                     CreateTaskFragmentDirections.actionCreateTaskFragmentToNotificationListFragment()
                 Navigation.findNavController(view).navigate(action)
+            }
+
+            backBtn.setOnClickListener {
+                Toast.makeText(requireContext(), "You are already on home", Toast.LENGTH_LONG)
+                    .show()
             }
         }
     }

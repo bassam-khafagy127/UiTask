@@ -24,13 +24,14 @@
             style="@style/light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{item.startDate}"
             android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
             android:textColor="@color/textColorBlack"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/dummyDate" />
+            tools:text="@string/dummyDate" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -58,8 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="@{item.subjectString}"
-                tools:text="@string/task"
+                android:text="@string/task"
                 android:textColor="@color/textColorBlack"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@id/profile_iv"
@@ -76,10 +76,11 @@
                 android:textSize="12sp"
                 android:layout_marginEnd="16dp"
                 android:maxLength="50"
+                android:text="@{item.subjectString}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/notification_type_tv"
                 app:layout_constraintTop_toBottomOf="@id/notification_type_tv"
-                android:text="@string/task_assigned_to_you_by_ceo" />
+                tools:text="@string/dummy_defOfDone" />
 
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -90,9 +91,10 @@
                 android:layout_marginTop="8dp"
                 android:textColor="@color/textColorBlack"
                 android:textSize="12sp"
+                android:text="@{item.startDate}"
                 app:layout_constraintStart_toStartOf="@id/notification_type_tv"
                 app:layout_constraintTop_toBottomOf="@id/notificationBody_tv"
-                tools:text="10:35 pm" />
+                tools:text="@string/dummyDAte2" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
