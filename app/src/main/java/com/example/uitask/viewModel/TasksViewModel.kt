@@ -34,8 +34,9 @@ class TasksViewModel @Inject constructor(private val repository: TasksRepository
     }
 
 
-    fun getSystemTime() {
+    fun getSystemTime():String {
         _dateLiveDate.value = getSystemDate()
+        return getSystemDate()
     }
 
 }

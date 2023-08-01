@@ -17,6 +17,7 @@ import com.example.uitask.data.local.Task
 import com.example.uitask.databinding.FragmentCreateClassicTaskBinding
 import com.example.uitask.util.RegisterValidation
 import com.example.uitask.util.checkTask
+import com.example.uitask.util.dateConverter
 import com.example.uitask.viewModel.TasksViewModel
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
@@ -174,8 +175,8 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
         // Setting up the event for when ok is clicked
         datePicker.addOnPositiveButtonClickListener { selection ->
-            startDate = Date(selection.first ?: 0).toString()
-            endDate = Date(selection.second ?: 0).toString()
+            startDate = dateConverter(Date(selection.first ?: 0).toString())
+            endDate = dateConverter(Date(selection.second ?: 0).toString())
             Log.d("TIME_DEBUG", "StartDate: $startDate / EndDate: $endDate")
         }
 
