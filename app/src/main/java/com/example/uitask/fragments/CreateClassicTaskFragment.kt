@@ -1,7 +1,6 @@
 package com.example.uitask.fragments
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,8 +15,11 @@ import androidx.lifecycle.lifecycleScope
 import com.example.uitask.R
 import com.example.uitask.data.local.Task
 import com.example.uitask.databinding.FragmentCreateClassicTaskBinding
+import com.example.uitask.util.RegisterValidation
+import com.example.uitask.util.checkTask
 import com.example.uitask.viewModel.TasksViewModel
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,7 +31,8 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
     private val viewModel by viewModels<TasksViewModel>()
     private var startDate: String = ""
     private var endDate: String = ""
-    private var selectedAttachment = mutableListOf<Uri>()
+
+    private var selectedAttachment = ""
 
     private val selectAttachmentActivityResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -41,13 +44,13 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
                     (0 until count).forEach {
                         val imageUri = data.clipData?.getItemAt(it)?.uri
                         imageUri?.let {
-                            selectedAttachment.add(it)
+                            selectedAttachment = it.toString()
                         }
                     }
                 } else {
                     val attachmentUri = data?.data
                     attachmentUri?.let {
-                        selectedAttachment.add(it)
+                        selectedAttachment = it.toString()
                     }
                 }
             }
@@ -64,16 +67,14 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        addCallbacks()
+        addCallbacks(view)
     }
 
-    private fun addCallbacks() {
+    private fun addCallbacks(view: View) {
         binding.apply {
 
             saveBtn.setOnClickListener {
-                lifecycleScope.launch(Dispatchers.IO) {
-                    viewModel.insertTask(tasksComposition())
-                }
+                taskExecution(view)
             }
 
             clAttachment.setOnClickListener {
@@ -91,30 +92,77 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
     private fun selectAttachment() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false)
         intent.type = "*/*"
         selectAttachmentActivityResult.launch(intent)
     }
 
+    private fun taskExecution(view: View) {
+
+        when (val validation = checkTask(tasksComposition())) {
+
+            is RegisterValidation.Failed -> {
+
+                Snackbar.make(requireContext(), view, validation.message, Snackbar.LENGTH_LONG)
+                    .show()
+            }
+
+            is RegisterValidation.Success -> {
+                lifecycleScope.launch(Dispatchers.IO) {
+                    viewModel.insertTask(tasksComposition())
+                }
+            }
+        }
+    }
+
     private fun tasksComposition(): Task {
+
+        val subjectString = binding.subjectValueEd.text?.trim().toString()
+        val subjectVoiceUri = null
+
+        val descriptionString = binding.descriptionValueEd.text?.trim().toString()
+        val descriptionVoiceUri = null
+
+        val definitionOfDoneString = binding.definitionValueEd.text?.trim().toString()
+        val definitionOfDoneVoiceUri = null
+
+        val voiceNoteUri = null
+
+        val assigneesString = "MoizEldin"
+
+        val ccAssigneesString = null
+
+        val expectedHour = 1
+
+        val repeatedBoolean = false
+
+        val priorityString = "High"
+
+        val toDoString = binding.todoValueEd.text?.trim().toString()
+
+        val attachmentUris = selectedAttachment
+
+        val selectProjects = null
+
         return Task(
-            0, "SujectString1",
-            null,
-            "DescriptionString",
-            null,
-            "Definition1",
-            null,
-            null,
-            null,
-            null,
-            "25:10:2020",
-            "25:10:2023",
-            1,
-            false,
-            "High",
-            null,
-            null,
-            null
+            0,
+            subjectString,
+            subjectVoiceUri,
+            descriptionString,
+            descriptionVoiceUri,
+            definitionOfDoneString,
+            definitionOfDoneVoiceUri,
+            voiceNoteUri,
+            assigneesString,
+            ccAssigneesString,
+            startDate,
+            endDate,
+            expectedHour,
+            repeatedBoolean,
+            priorityString,
+            toDoString,
+            attachmentUris,
+            selectProjects
         )
 
 
