@@ -1,7 +1,8 @@
-package com.example.uitask
+package com.example.uitask.activites
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.uitask.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
