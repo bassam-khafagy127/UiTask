@@ -1,5 +1,7 @@
 package com.example.uitask.viewModel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.uitask.data.local.Task
@@ -12,6 +14,8 @@ import javax.inject.Inject
 @HiltViewModel
 class TasksViewModel @Inject constructor(private val repository: TasksRepository) : ViewModel() {
 
+    private val _taskLiveDate = MutableLiveData<Task>()
+    val taskLiveDate: LiveData<Task> = _taskLiveDate
     suspend fun insertTask(task: Task) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertTask(task)
@@ -19,5 +23,7 @@ class TasksViewModel @Inject constructor(private val repository: TasksRepository
     }
 
     suspend fun getAllTasks() = repository.getAllTasks()
-    suspend fun getTaskByID(id:Long) = repository.getTaskById(id)
+    suspend fun getTaskByID(id: Long) {
+        _taskLiveDate.value = repository.getTaskById(id)
+    }
 }

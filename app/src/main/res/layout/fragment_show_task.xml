@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+<variable
+    name="viewModel"
+    type="com.example.uitask.viewModel.TasksViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -207,6 +209,7 @@
             android:background="@color/transparent"
             android:editable="false"
             android:maxLines="2"
+            android:text="@{viewModel.taskLiveDate.descriptionString}"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -249,7 +252,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/description"
+            android:text="@string/definition_of_done"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/twoLine_iv"
             app:layout_constraintTop_toBottomOf="@id/audio_progress" />
@@ -261,6 +264,7 @@
             style="@style/light"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="@{viewModel.taskLiveDate.definitionOfDoneString}"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -347,6 +351,7 @@
                 android:id="@+id/startDate_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.taskLiveDate.startDate}"
                 app:layout_constraintStart_toStartOf="@id/startDateView"
                 app:layout_constraintTop_toBottomOf="@id/startDateView"
                 tools:text="@string/dummyDAte2" />
