@@ -758,7 +758,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/attachmentFieldTv"
                     style="@style/regular"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="2dp"
@@ -767,7 +767,6 @@
                     android:textColor="@color/textColorBlack"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@id/attachmentIconIv"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/attachmentIconIv"
                     app:layout_constraintTop_toTopOf="@id/attachmentIconIv" />
 
