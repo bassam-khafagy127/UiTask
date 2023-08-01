@@ -27,16 +27,30 @@ class ShowTaskFragment : Fragment(R.layout.fragment_show_task) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentShowTaskBinding.inflate(layoutInflater)
+
         lifecycleScope.launch(Dispatchers.IO) {
             viewModel.getTaskByID(taskArgs.taskId.toLong())
         }
+
+        binding = FragmentShowTaskBinding.inflate(layoutInflater)
         binding.viewModel = viewModel
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.fragmentTaskTitle.text = taskArgs.taskId.toString()
+
+        binding.fragmentTaskTitle.text = buildString {
+            append(getString(R.string.taskSign))
+            append(taskArgs.taskId)
+        }
+        lifecycleScope.launch(Dispatchers.IO) {
+            viewModel.getTaskByID(taskArgs.taskId.toLong())
+
+        }
+        viewModel.taskLiveDate.observe(viewLifecycleOwner) {
+
+        }
     }
 }

@@ -33,7 +33,7 @@
             android:layout_marginStart="16dp"
             android:background="@color/transparent"
             android:src="@drawable/ic_arrow_back"
-            android:text="@string/t_5453"
+            tools:text="@string/t_5453"
             android:textAppearance="@style/medium"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -83,12 +83,15 @@
             app:layout_constraintTop_toBottomOf="@id/back_btn" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/taskTitle"
+            android:id="@+id/subjectTitle"
             style="@style/regular"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             android:layout_marginStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
             android:textSize="16sp"
+            android:text="@{viewModel.taskLiveDate.subjectString}"
             app:layout_constraintBottom_toBottomOf="@id/twoLine_iv"
             app:layout_constraintStart_toEndOf="@id/twoLine_iv"
             app:layout_constraintTop_toTopOf="@id/twoLine_iv"
@@ -101,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             tools:text="@string/dummyDate"
-            app:layout_constraintStart_toStartOf="@id/taskTitle"
+            app:layout_constraintStart_toStartOf="@id/subjectTitle"
             app:layout_constraintTop_toBottomOf="@id/twoLine_iv" />
 
         <View
@@ -131,6 +134,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:maxLength="9"
+            android:text="@{viewModel.taskLiveDate.assignees}"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/sender_iv"
             app:layout_constraintStart_toEndOf="@id/sender_iv"
@@ -144,7 +148,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/senderNameTv"
             app:layout_constraintTop_toBottomOf="@id/senderNameTv"
-            tools:text="@string/cto" />
+            android:text="@string/cto" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/arrowTo_iv"
@@ -176,6 +180,7 @@
             android:layout_marginStart="8dp"
             android:maxLength="9"
             android:textSize="14sp"
+            android:text="@{viewModel.taskLiveDate.assignees}"
             app:layout_constraintBottom_toBottomOf="@id/receiver_iv"
             app:layout_constraintStart_toEndOf="@id/receiver_iv"
             app:layout_constraintTop_toTopOf="@id/receiver_iv"
@@ -188,7 +193,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/receiverNameTv"
             app:layout_constraintTop_toBottomOf="@id/receiverNameTv"
-            tools:text="@string/cto" />
+            android:text="@string/cto" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/description_tv"
@@ -386,6 +391,7 @@
                 android:id="@+id/expected_time_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.taskLiveDate.expectedWorkingHorus.toString()}"
                 app:layout_constraintEnd_toEndOf="@id/exp_tv"
                 app:layout_constraintStart_toStartOf="@id/exp_tv"
                 app:layout_constraintTop_toBottomOf="@id/exp_tv"
@@ -411,7 +417,7 @@
                 app:layout_constraintEnd_toEndOf="@id/act_tv"
                 app:layout_constraintStart_toStartOf="@id/act_tv"
                 app:layout_constraintTop_toBottomOf="@id/act_tv"
-                tools:text="@string/_0" />
+                android:text="@string/_0" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/endDateView"
@@ -427,6 +433,7 @@
                 android:id="@+id/endDate_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.taskLiveDate.endDate}"
                 app:layout_constraintStart_toStartOf="@id/endDateView"
                 app:layout_constraintTop_toBottomOf="@id/endDateView"
                 tools:text="@string/dummyDAte2" />

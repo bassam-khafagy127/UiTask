@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.uitask.data.local.Task
 import com.example.uitask.repositories.TasksRepository
+import com.example.uitask.util.getSystemDate
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,6 +17,10 @@ class TasksViewModel @Inject constructor(private val repository: TasksRepository
 
     private val _taskLiveDate = MutableLiveData<Task>()
     val taskLiveDate: LiveData<Task> = _taskLiveDate
+
+    private val _dateLiveDate = MutableLiveData<String>()
+    val dateLiveDate: LiveData<String> = _dateLiveDate
+
     suspend fun insertTask(task: Task) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertTask(task)
@@ -23,7 +28,14 @@ class TasksViewModel @Inject constructor(private val repository: TasksRepository
     }
 
     suspend fun getAllTasks() = repository.getAllTasks()
-    suspend fun getTaskByID(id: Long) {
-        _taskLiveDate.value = repository.getTaskById(id)
+
+    fun getTaskByID(id: Long) {
+        _taskLiveDate.postValue(repository.getTaskById(id))
     }
+
+
+    fun getSystemTime() {
+        _dateLiveDate.value = getSystemDate()
+    }
+
 }
