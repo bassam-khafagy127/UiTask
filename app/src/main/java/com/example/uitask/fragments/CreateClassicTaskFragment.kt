@@ -29,8 +29,11 @@ import java.util.Date
 
 @AndroidEntryPoint
 class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task) {
+
     private lateinit var binding: FragmentCreateClassicTaskBinding
+
     private val viewModel by viewModels<TasksViewModel>()
+
     private var startDate: String = ""
     private var endDate: String = ""
 
@@ -70,7 +73,10 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addCallbacks(view)
+        observeDateValue()
+    }
 
+    private fun observeDateValue() {
         lifecycleScope.launch {
             viewModel.dateLiveDate.collect {
                 when (it) {
@@ -106,13 +112,14 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
                 }
             }
         }
+
     }
 
     private fun addCallbacks(view: View) {
         binding.apply {
 
             saveBtn.setOnClickListener {
-                taskExecution(view)
+                taskSave(view)
             }
 
             clAttachment.setOnClickListener {
@@ -125,6 +132,15 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
             clPriority.setOnClickListener {
 
             }
+            subjectMicrophoneIv.setOnClickListener {
+
+            }
+            descriptionMicrophoneIv.setOnClickListener {
+
+            }
+            definitionOfDoneMicrophoneIv.setOnClickListener {
+
+            }
         }
     }
 
@@ -135,7 +151,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
         selectAttachmentActivityResult.launch(intent)
     }
 
-    private fun taskExecution(view: View) {
+    private fun taskSave(view: View) {
 
         when (val validation = checkTask(tasksComposition())) {
 
@@ -151,6 +167,41 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
                 }
             }
         }
+    }
+
+
+    private fun showDateRangePickerDialog(): Pair<String, String> {
+        val datePicker = MaterialDatePicker.Builder.dateRangePicker().build()
+        datePicker.show(childFragmentManager, "Date Range Picker")
+
+        // Setting up the event for when ok is clicked
+        datePicker.addOnPositiveButtonClickListener { selection ->
+
+            startDate = dateConverter(Date(selection.first ?: 0).toString())
+            endDate = dateConverter(Date(selection.second ?: 0).toString())
+
+            Log.d("TIME_DEBUG", "StartDate: $startDate / EndDate: $endDate")
+
+            if (startDate.isNotEmpty()) {
+                viewModel.setStartEndDate(Resource.Success(Pair(startDate, endDate)))
+            } else {
+                viewModel.setStartEndDate(Resource.Unspecified())
+            }
+        }
+
+        // Setting up the event for when cancelled is clicked
+        datePicker.addOnNegativeButtonClickListener {
+            Log.d("TIME_DEBUG", datePicker.headerText)
+        }
+
+        // Setting up the event for when back button is pressed
+        datePicker.addOnCancelListener {
+            Toast.makeText(requireContext(), "Date Picker Cancelled", Toast.LENGTH_LONG)
+                .show()
+            Log.d("TIME_DEBUG", "Date Picker Cancelled")
+
+        }
+        return Pair(startDate, endDate)
     }
 
     private fun tasksComposition(): Task {
@@ -202,45 +253,8 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
             attachmentUris,
             selectProjects
         )
-
-
     }
 
-    private fun showDateRangePickerDialog(): Pair<String, String> {
-        val datePicker = MaterialDatePicker.Builder.dateRangePicker().build()
-        datePicker.show(childFragmentManager, "Date Range Picker")
-
-        // Setting up the event for when ok is clicked
-        datePicker.addOnPositiveButtonClickListener { selection ->
-            startDate = dateConverter(Date(selection.first ?: 0).toString())
-            endDate = dateConverter(Date(selection.second ?: 0).toString())
-            Log.d("TIME_DEBUG", "StartDate: $startDate / EndDate: $endDate")
-            if (startDate.isNotEmpty()) {
-                viewModel.setStartEndDate(Resource.Success(Pair(startDate, endDate)))
-            } else {
-                viewModel.setStartEndDate(Resource.Unspecified())
-            }
-        }
-
-        // Setting up the event for when cancelled is clicked
-        datePicker.addOnNegativeButtonClickListener {
-            Log.d("TIME_DEBUG", datePicker.headerText)
-            if (startDate.isNotEmpty()) {
-                viewModel.setStartEndDate(Resource.Success(Pair(startDate, endDate)))
-            } else {
-                viewModel.setStartEndDate(Resource.Unspecified())
-            }
-        }
-
-        // Setting up the event for when back button is pressed
-        datePicker.addOnCancelListener {
-            Toast.makeText(requireContext(), "Date Picker Cancelled", Toast.LENGTH_LONG)
-                .show()
-            Log.d("TIME_DEBUG", "Date Picker Cancelled")
-
-        }
-        return Pair(startDate, endDate)
-    }
 
 }
 
