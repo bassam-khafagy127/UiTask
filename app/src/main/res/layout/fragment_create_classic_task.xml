@@ -459,6 +459,8 @@
                     android:layout_width="8dp"
                     android:layout_height="8dp"
                     android:layout_marginTop="16dp"
+                    android:visibility="gone"
+
                     android:src="@drawable/gray_oval"
                     app:layout_constraintStart_toStartOf="@id/dateFieldTv"
                     app:layout_constraintTop_toBottomOf="@id/dateIconIv" />
@@ -467,6 +469,8 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/startDate_tv"
                     android:layout_width="wrap_content"
+                    android:visibility="gone"
+
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     app:layout_constraintBottom_toBottomOf="@id/startDate_iv"
@@ -479,6 +483,7 @@
                     android:layout_width="@dimen/_6sdp"
                     android:layout_height="32dp"
                     android:layout_marginTop="8dp"
+                    android:visibility="gone"
 
                     android:layout_marginBottom="8dp"
                     android:src="@drawable/vertical_dots"
@@ -493,6 +498,8 @@
                     android:layout_height="@dimen/_6sdp"
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="16dp"
+                    android:visibility="gone"
+
                     android:src="@drawable/red_oval"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@id/startDate_iv" />
@@ -502,6 +509,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:visibility="gone"
+
                     app:layout_constraintBottom_toBottomOf="@id/end_oval"
                     app:layout_constraintStart_toEndOf="@id/end_oval"
                     app:layout_constraintTop_toTopOf="@id/end_oval"

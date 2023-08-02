@@ -208,7 +208,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
     private fun showDateRangePickerDialog(): Pair<String, String> {
         val datePicker = MaterialDatePicker.Builder.dateRangePicker().build()
-        datePicker.show(childFragmentManager, "DatePicker")
+        datePicker.show(childFragmentManager, "Date Range Picker")
 
         // Setting up the event for when ok is clicked
         datePicker.addOnPositiveButtonClickListener { selection ->

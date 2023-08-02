@@ -10,8 +10,8 @@ import com.example.uitask.util.Resource
 import com.example.uitask.util.getSystemDate
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,8 +22,8 @@ class TasksViewModel @Inject constructor(private val repository: TasksRepository
     val taskLiveDate: LiveData<Task> = _taskLiveDate
 
     private val _dateLiveDate =
-        MutableStateFlow<Resource<Pair<String, String>>>(Resource.Unspecified())
-    val dateLiveDate = _dateLiveDate.asStateFlow()
+        MutableSharedFlow<Resource<Pair<String, String>>>()
+    val dateLiveDate = _dateLiveDate.asSharedFlow()
 
     suspend fun insertTask(task: Task) {
         viewModelScope.launch(Dispatchers.IO) {
