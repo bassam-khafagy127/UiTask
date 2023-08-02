@@ -134,9 +134,9 @@
                     android:layout_marginEnd="6dp"
                     android:layout_marginBottom="6dp"
                     android:background="@color/transparent"
+                    android:hint="@string/description"
                     android:textColor="@color/hintTextColor"
                     android:textSize="14sp"
-                    android:hint="@string/description"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/textCase_state"
                     app:layout_constraintStart_toStartOf="@id/descriptionFieldTv"
@@ -338,11 +338,11 @@
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="6dp"
-                    android:textSize="14sp"
-
                     android:background="@color/transparent"
+
                     android:hint="@string/description"
                     android:src="@drawable/ic_add_person"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@id/assigneesFieldTv"
                     app:layout_constraintTop_toBottomOf="@id/assigneesFieldTv" />
@@ -453,6 +453,59 @@
                     app:layout_constraintBottom_toBottomOf="@id/dateFieldTv"
                     app:layout_constraintStart_toEndOf="@id/dateFieldTv"
                     app:layout_constraintTop_toTopOf="@id/dateFieldTv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/startDate_iv"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/gray_oval"
+                    app:layout_constraintStart_toStartOf="@id/dateFieldTv"
+                    app:layout_constraintTop_toBottomOf="@id/dateIconIv" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/startDate_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/startDate_iv"
+                    app:layout_constraintStart_toEndOf="@id/startDate_iv"
+                    app:layout_constraintTop_toTopOf="@id/startDate_iv"
+                    tools:text="@string/dummyDAte2" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/vertical_dots_view"
+                    android:layout_width="@dimen/_6sdp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="8dp"
+
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/vertical_dots"
+                    app:layout_constraintBottom_toTopOf="@id/end_oval"
+                    app:layout_constraintEnd_toEndOf="@id/startDate_iv"
+                    app:layout_constraintStart_toStartOf="@id/startDate_iv"
+                    app:layout_constraintTop_toBottomOf="@id/startDate_iv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/end_oval"
+                    android:layout_width="@dimen/_6sdp"
+                    android:layout_height="@dimen/_6sdp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@drawable/red_oval"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/startDate_iv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/endDate_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/end_oval"
+                    app:layout_constraintStart_toEndOf="@id/end_oval"
+                    app:layout_constraintTop_toTopOf="@id/end_oval"
+                    tools:text="@string/dummyDAte2" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

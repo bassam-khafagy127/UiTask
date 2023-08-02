@@ -8,8 +8,8 @@
     <string name="record_note">ملاحظة صوتية</string>
     <string name="assignees">المعينون</string>
     <string name="cc_assignees">CC المعينون</string>
-    <string name="date_time"><![CDATA[Date & Time]]></string>
-    <string name="expected_working_hours">الوقت المتوقع ببعمل</string>
+    <string name="date_time">التاريخ والوقت</string>
+    <string name="expected_working_hours">الوقت المتوقع للعمل</string>
     <string name="repeat">تكرار</string>
     <string name="attachment">ملحقات</string>
     <string name="to_do_list">To Do قائمة</string>

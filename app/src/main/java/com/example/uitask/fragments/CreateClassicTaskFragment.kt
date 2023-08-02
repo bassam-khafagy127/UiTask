@@ -16,6 +16,7 @@ import com.example.uitask.R
 import com.example.uitask.data.local.Task
 import com.example.uitask.databinding.FragmentCreateClassicTaskBinding
 import com.example.uitask.util.RegisterValidation
+import com.example.uitask.util.Resource
 import com.example.uitask.util.checkTask
 import com.example.uitask.util.dateConverter
 import com.example.uitask.viewModel.TasksViewModel
@@ -69,6 +70,42 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addCallbacks(view)
+
+        lifecycleScope.launch {
+            viewModel.dateLiveDate.collect {
+                when (it) {
+                    is Resource.Unspecified -> {
+                        binding.apply {
+                            startDateTv.visibility = View.GONE
+                            startDateIv.visibility = View.GONE
+
+                            verticalDotsView.visibility = View.GONE
+
+                            endDateTv.visibility = View.GONE
+                            endOval.visibility = View.GONE
+                        }
+                    }
+
+                    is Resource.Error -> {}
+
+                    is Resource.Loading -> {}
+
+                    is Resource.Success -> {
+                        binding.apply {
+                            startDateTv.visibility = View.VISIBLE
+                            startDateTv.text = it.data?.first
+                            startDateIv.visibility = View.VISIBLE
+
+                            verticalDotsView.visibility = View.VISIBLE
+
+                            endDateTv.text = it.data?.second
+                            endDateTv.visibility = View.VISIBLE
+                            endOval.visibility = View.VISIBLE
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private fun addCallbacks(view: View) {
@@ -178,11 +215,21 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
             startDate = dateConverter(Date(selection.first ?: 0).toString())
             endDate = dateConverter(Date(selection.second ?: 0).toString())
             Log.d("TIME_DEBUG", "StartDate: $startDate / EndDate: $endDate")
+            if (startDate.isNotEmpty()) {
+                viewModel.setStartEndDate(Resource.Success(Pair(startDate, endDate)))
+            } else {
+                viewModel.setStartEndDate(Resource.Unspecified())
+            }
         }
 
         // Setting up the event for when cancelled is clicked
         datePicker.addOnNegativeButtonClickListener {
             Log.d("TIME_DEBUG", datePicker.headerText)
+            if (startDate.isNotEmpty()) {
+                viewModel.setStartEndDate(Resource.Success(Pair(startDate, endDate)))
+            } else {
+                viewModel.setStartEndDate(Resource.Unspecified())
+            }
         }
 
         // Setting up the event for when back button is pressed
@@ -196,3 +243,5 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
     }
 
 }
+
+
