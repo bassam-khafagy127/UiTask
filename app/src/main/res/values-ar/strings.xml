@@ -6,7 +6,7 @@
     <string name="description">الوصف</string>
     <string name="definition_of_done">تعريف المنجز</string>
     <string name="record_note">ملاحظة صوتية</string>
-    <string name="assignees">المعينون</string>
+    <string name="assignees">المحال إليه</string>
     <string name="cc_assignees">CC المعينون</string>
     <string name="date_time">التاريخ والوقت</string>
     <string name="expected_working_hours">الوقت المتوقع للعمل</string>
@@ -49,4 +49,5 @@
     <string name="task_inserted_successfully">تم إضافة المهمة بنجاح</string>
     <string name="close">إغلاق</string>
     <string name="ok">حسنا</string>
+    <string name="choseAssignees">إختر المحال إليه</string>
 </resources>

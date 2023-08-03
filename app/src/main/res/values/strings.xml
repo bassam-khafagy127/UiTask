@@ -52,5 +52,6 @@
     <string name="task_inserted_successfully">Task inserted successfully</string>
     <string name="close">Close</string>
     <string name="ok">Ok</string>
+    <string name="choseAssignees">Chose Assignees</string>
 
 </resources>

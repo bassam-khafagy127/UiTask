@@ -269,7 +269,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
     private fun getAssignees() {
         val alertDialog = AlertDialog.Builder(requireContext())
-        alertDialog.setTitle("Chose Assignees")
+        alertDialog.setTitle(getString(R.string.choseAssignees))
         alertDialog.setPositiveButton(getString(R.string.ok), null)
         val items = arrayOf(
             "Ola Hassan ELrifaey",
