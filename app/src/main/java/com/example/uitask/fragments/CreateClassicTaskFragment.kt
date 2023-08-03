@@ -1,6 +1,7 @@
 package com.example.uitask.fragments
 
 import android.app.Activity
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -44,6 +46,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
     private var selectedAttachment = ""
 
+    private var priority: String = ""
 
     private val selectAttachmentActivityResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -71,7 +74,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentCreateClassicTaskBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -80,25 +83,8 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
         super.onViewCreated(view, savedInstanceState)
         addCallbacks(view)
         observeDateValue()
-        observeInsertionState(view)
-    }
-
-    private fun observeInsertionState(view: View) {
-        lifecycleScope.launch {
-            viewModel.insertionState.collect {
-                when (it) {
-                    is Resource.Loading -> {}
-
-                    is Resource.Error -> {}
-
-                    is Resource.Success -> {
-                        showSuccessToast(requireContext())
-                    }
-
-                    is Resource.Unspecified -> {}
-                }
-            }
-        }
+        observeInsertionState()
+        observePriorityValue()
     }
 
 
@@ -117,7 +103,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
             }
 
             clPriority.setOnClickListener {
-
+                getPriority()
             }
 
             subjectMicrophoneIv.setOnClickListener {
@@ -132,6 +118,98 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
         }
     }
+
+
+    private fun taskSave(view: View) {
+
+        when (val validation = checkTask(tasksComposition())) {
+
+            is RegisterValidation.Failed -> {
+
+                Snackbar.make(requireContext(), view, validation.message, Snackbar.LENGTH_LONG)
+                    .show()
+            }
+
+            is RegisterValidation.Success -> {
+                lifecycleScope.launch(Dispatchers.IO) {
+                    viewModel.insertTask(tasksComposition())
+                }
+            }
+        }
+    }
+
+
+    private fun selectAttachment() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false)
+        intent.type = "*/*"
+        selectAttachmentActivityResult.launch(intent)
+    }
+
+
+    private fun showDateRangePickerDialog(): Pair<String, String> {
+        val datePicker = MaterialDatePicker.Builder.dateRangePicker().build()
+        datePicker.show(childFragmentManager, "Date Range Picker")
+
+        // Setting up the event for when ok is clicked
+        datePicker.addOnPositiveButtonClickListener { selection ->
+
+            startDate = dateConverter(Date(selection.first ?: 0).toString())
+            endDate = dateConverter(Date(selection.second ?: 0).toString())
+
+            Log.d("TIME_DEBUG", "StartDate: $startDate / EndDate: $endDate")
+
+            if (startDate.isNotEmpty()) {
+                viewModel.setStartEndDate(Resource.Success(Pair(startDate, endDate)))
+            } else {
+                viewModel.setStartEndDate(Resource.Unspecified())
+            }
+        }
+
+        // Setting up the event for when cancelled is clicked
+        datePicker.addOnNegativeButtonClickListener {
+            Log.d("TIME_DEBUG", datePicker.headerText)
+        }
+
+        // Setting up the event for when back button is pressed
+        datePicker.addOnCancelListener {
+            Toast.makeText(requireContext(), "Date Picker Cancelled", Toast.LENGTH_LONG).show()
+            Log.d("TIME_DEBUG", "Date Picker Cancelled")
+
+        }
+        return Pair(startDate, endDate)
+    }
+
+
+    private fun getPriority() {
+        val alertDialog = AlertDialog.Builder(requireContext())
+        alertDialog.setTitle("Chose Priority")
+        alertDialog.setPositiveButton(getString(R.string.ok), null)
+        val items = arrayOf("High", "Mid", "Low")
+        val checkItem = 1
+        alertDialog.setSingleChoiceItems(items, checkItem) { _: DialogInterface?, which: Int ->
+            run {
+                when (which) {
+                    0 -> {
+                        Log.d("Priority", items[0])
+                        viewModel.setPriority(items[0])
+                    }
+
+                    1 -> {
+                        Log.d("Priority", items[1])
+                        viewModel.setPriority(items[1])
+                    }
+
+                    2 -> {
+                        Log.d("Priority", items[2])
+                        viewModel.setPriority(items[2])
+                    }
+                }
+            }
+        }
+        alertDialog.show()
+    }
+
 
     private fun descriptionMicrophone(intentLauncher: ActivityResultLauncher<Intent>) {
         try {
@@ -183,63 +261,50 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
         }
 
 
-    private fun selectAttachment() {
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false)
-        intent.type = "*/*"
-        selectAttachmentActivityResult.launch(intent)
-    }
 
-    private fun taskSave(view: View) {
+    private fun tasksComposition(): Task {
 
-        when (val validation = checkTask(tasksComposition())) {
+        val subjectString = binding.subjectValueEd.text?.trim().toString()
 
-            is RegisterValidation.Failed -> {
+        val descriptionString = binding.descriptionValueEd.text?.trim().toString()
 
-                Snackbar.make(requireContext(), view, validation.message, Snackbar.LENGTH_LONG)
-                    .show()
-            }
+        val definitionOfDoneString = binding.definitionValueEd.text?.trim().toString()
 
-            is RegisterValidation.Success -> {
-                lifecycleScope.launch(Dispatchers.IO) {
-                    viewModel.insertTask(tasksComposition())
-                }
-            }
-        }
-    }
+        val voiceNoteUri = null
 
+        val assigneesString = "MoizEldin"
 
-    private fun showDateRangePickerDialog(): Pair<String, String> {
-        val datePicker = MaterialDatePicker.Builder.dateRangePicker().build()
-        datePicker.show(childFragmentManager, "Date Range Picker")
+        val ccAssigneesString = null
 
-        // Setting up the event for when ok is clicked
-        datePicker.addOnPositiveButtonClickListener { selection ->
+        val expectedHour = 1
 
-            startDate = dateConverter(Date(selection.first ?: 0).toString())
-            endDate = dateConverter(Date(selection.second ?: 0).toString())
+        val repeatedBoolean = false
 
-            Log.d("TIME_DEBUG", "StartDate: $startDate / EndDate: $endDate")
+        val priorityString = priority
 
-            if (startDate.isNotEmpty()) {
-                viewModel.setStartEndDate(Resource.Success(Pair(startDate, endDate)))
-            } else {
-                viewModel.setStartEndDate(Resource.Unspecified())
-            }
-        }
+        val toDoString = binding.todoValueEd.text?.trim().toString()
 
-        // Setting up the event for when cancelled is clicked
-        datePicker.addOnNegativeButtonClickListener {
-            Log.d("TIME_DEBUG", datePicker.headerText)
-        }
+        val attachmentUris = selectedAttachment
 
-        // Setting up the event for when back button is pressed
-        datePicker.addOnCancelListener {
-            Toast.makeText(requireContext(), "Date Picker Cancelled", Toast.LENGTH_LONG).show()
-            Log.d("TIME_DEBUG", "Date Picker Cancelled")
+        val selectProjects = null
 
-        }
-        return Pair(startDate, endDate)
+        return Task(
+            0,
+            subjectString,
+            descriptionString,
+            definitionOfDoneString,
+            voiceNoteUri,
+            assigneesString,
+            ccAssigneesString,
+            startDate,
+            endDate,
+            expectedHour,
+            repeatedBoolean,
+            priorityString,
+            toDoString,
+            attachmentUris,
+            selectProjects
+        )
     }
 
     private fun observeDateValue() {
@@ -274,6 +339,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
                             endDateTv.visibility = View.VISIBLE
                             endOval.visibility = View.VISIBLE
                         }
+
                     }
                 }
             }
@@ -281,58 +347,37 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
     }
 
-    private fun tasksComposition(): Task {
+    private fun observeInsertionState() {
+        lifecycleScope.launch {
+            viewModel.insertionState.collect {
+                when (it) {
+                    is Resource.Loading -> {}
 
-        val subjectString = binding.subjectValueEd.text?.trim().toString()
-        val subjectVoiceUri = null
+                    is Resource.Error -> {}
 
-        val descriptionString = binding.descriptionValueEd.text?.trim().toString()
-        val descriptionVoiceUri = null
+                    is Resource.Success -> {
+                        showSuccessToast(requireContext())
+                    }
 
-        val definitionOfDoneString = binding.definitionValueEd.text?.trim().toString()
-        val definitionOfDoneVoiceUri = null
-
-        val voiceNoteUri = null
-
-        val assigneesString = "MoizEldin"
-
-        val ccAssigneesString = null
-
-        val expectedHour = 1
-
-        val repeatedBoolean = false
-
-        val priorityString = "High"
-
-        val toDoString = binding.todoValueEd.text?.trim().toString()
-
-        val attachmentUris = selectedAttachment
-
-        val selectProjects = null
-
-        return Task(
-            0,
-            subjectString,
-            subjectVoiceUri,
-            descriptionString,
-            descriptionVoiceUri,
-            definitionOfDoneString,
-            definitionOfDoneVoiceUri,
-            voiceNoteUri,
-            assigneesString,
-            ccAssigneesString,
-            startDate,
-            endDate,
-            expectedHour,
-            repeatedBoolean,
-            priorityString,
-            toDoString,
-            attachmentUris,
-            selectProjects
-        )
+                    is Resource.Unspecified -> {}
+                }
+            }
+        }
     }
 
+    private fun observePriorityValue() {
+        lifecycleScope.launch {
 
+            binding.apply {
+                viewModel.priorityLiveDate.collect {
+                    priority = it
+                    priorityValueIv.visibility = View.VISIBLE
+                    priorityValueTv.visibility = View.VISIBLE
+                    priorityValueTv.text = it
+                }
+            }
+        }
+    }
 }
 
 

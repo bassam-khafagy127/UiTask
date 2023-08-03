@@ -29,6 +29,9 @@ class TasksViewModel @Inject constructor(private val repository: TasksRepository
         MutableSharedFlow<Resource<String>>()
     val insertionState = _insertionState.asSharedFlow()
 
+    private val _priorityLiveDate =
+        MutableSharedFlow<String>()
+    val priorityLiveDate = _priorityLiveDate.asSharedFlow()
 
     suspend fun insertTask(task: Task) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -55,6 +58,12 @@ class TasksViewModel @Inject constructor(private val repository: TasksRepository
     fun setStartEndDate(dateRange: Resource<Pair<String, String>>) {
         viewModelScope.launch {
             _dateLiveDate.emit(dateRange)
+        }
+    }
+
+    fun setPriority(priority: String) {
+        viewModelScope.launch {
+            _priorityLiveDate.emit(priority)
         }
     }
 

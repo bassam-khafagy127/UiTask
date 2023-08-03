@@ -8,12 +8,9 @@ data class Task(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val subjectString: String?,
-    val subjectVoiceNoteUri: String?,
     val descriptionString: String?,
-    val descriptionVoiceNoteUri: String?,
     val definitionOfDoneString: String?,
-    val definitionOfDoneVoiceNoteUri: String?,
-    val voiceNote: String?,
+    val voiceNoteUri: String?,
     val assignees: String?,
     val ccAssignees: String?,
     val startDate: String?,

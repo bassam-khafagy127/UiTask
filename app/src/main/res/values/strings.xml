@@ -51,5 +51,6 @@
     <string name="speechToText">Please say the script</string>
     <string name="task_inserted_successfully">Task inserted successfully</string>
     <string name="close">Close</string>
+    <string name="ok">Ok</string>
 
 </resources>
