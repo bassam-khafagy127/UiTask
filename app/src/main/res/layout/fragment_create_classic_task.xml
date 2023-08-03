@@ -288,6 +288,7 @@
 
                         <!-- assignees-->
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/assigneesCl"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
@@ -332,20 +333,60 @@
                                 app:layout_constraintTop_toTopOf="@id/assigneesFieldTv" />
 
                             <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/assigneesValue_ed"
+                                android:id="@+id/assigneesValue_Id"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:layout_marginEnd="16dp"
                                 android:layout_marginBottom="6dp"
                                 android:background="@color/transparent"
-
                                 android:hint="@string/description"
                                 android:src="@drawable/ic_add_person"
                                 android:textSize="14sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="@id/assigneesFieldTv"
                                 app:layout_constraintTop_toBottomOf="@id/assigneesFieldTv" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/assignees_cl_user"
+                                android:layout_width="wrap_content"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="6dp"
+                                android:visibility="gone"
+                                android:paddingHorizontal="16dp"
+                                android:background="@drawable/bg_assignees_40radious"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="@id/assigneesFieldTv"
+                                app:layout_constraintTop_toBottomOf="@id/assigneesFieldTv">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/assignees_iv_user"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/gray_oval"
+                                    android:backgroundTint="@color/violetBtnColors"
+                                    android:padding="4dp"
+                                    android:visibility="gone"
+                                    android:src="@drawable/ic_profile"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/assignees_tv_user"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:maxLength="65"
+                                    android:visibility="gone"
+                                    android:textColor="@color/gray"
+                                    app:layout_constraintBottom_toBottomOf="@id/assignees_iv_user"
+                                    app:layout_constraintStart_toEndOf="@id/assignees_iv_user"
+                                    app:layout_constraintTop_toTopOf="@id/assignees_iv_user"
+                                    tools:text="Ola ahmed zahe" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <View

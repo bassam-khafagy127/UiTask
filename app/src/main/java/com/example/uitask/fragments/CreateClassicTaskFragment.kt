@@ -48,6 +48,8 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
     private var priority: String = ""
 
+    private var assignnes: String = ""
+
     private val selectAttachmentActivityResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
@@ -85,6 +87,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
         observeDateValue()
         observeInsertionState()
         observePriorityValue()
+        observeAssigneesValue()
     }
 
 
@@ -116,6 +119,9 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
                 descriptionMicrophone(definitionResult)
             }
 
+            assigneesCl.setOnClickListener {
+                getAssignees()
+            }
         }
     }
 
@@ -261,6 +267,44 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
         }
 
 
+    private fun getAssignees() {
+        val alertDialog = AlertDialog.Builder(requireContext())
+        alertDialog.setTitle("Chose Assignees")
+        alertDialog.setPositiveButton(getString(R.string.ok), null)
+        val items = arrayOf(
+            "Ola Hassan ELrifaey",
+            "Khalid abo elMagd",
+            "Moiz Eldin Elbaksisy",
+            "Ola Khalid ELrifaey",
+        )
+        val checkItem = 1
+        alertDialog.setSingleChoiceItems(items, checkItem) { _: DialogInterface?, which: Int ->
+            run {
+                when (which) {
+                    0 -> {
+                        Log.d("Assignees", items[0])
+                        viewModel.setAssignees(items[0])
+                    }
+
+                    1 -> {
+                        Log.d("Assignees", items[1])
+                        viewModel.setAssignees(items[1])
+                    }
+
+                    2 -> {
+                        Log.d("Assignees", items[2])
+                        viewModel.setAssignees(items[2])
+                    }
+
+                    3 -> {
+                        Log.d("Assignees", items[3])
+                        viewModel.setAssignees(items[3])
+                    }
+                }
+            }
+        }
+        alertDialog.show()
+    }
 
     private fun tasksComposition(): Task {
 
@@ -272,7 +316,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
         val voiceNoteUri = null
 
-        val assigneesString = "MoizEldin"
+        val assigneesString = assignnes
 
         val ccAssigneesString = null
 
@@ -367,13 +411,29 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
     private fun observePriorityValue() {
         lifecycleScope.launch {
-
             binding.apply {
                 viewModel.priorityLiveDate.collect {
                     priority = it
                     priorityValueIv.visibility = View.VISIBLE
                     priorityValueTv.visibility = View.VISIBLE
                     priorityValueTv.text = it
+                }
+            }
+        }
+    }
+
+    private fun observeAssigneesValue() {
+        lifecycleScope.launch {
+            binding.apply {
+                viewModel.assigneesLiveDate.collect {
+                    assignnes = it
+                    assigneesTvUser.text = it
+                    assigneesValueId.visibility = View.GONE
+
+                    assigneesIvUser.visibility = View.VISIBLE
+                    assigneesClUser.visibility = View.VISIBLE
+                    assigneesTvUser.visibility = View.VISIBLE
+
                 }
             }
         }
