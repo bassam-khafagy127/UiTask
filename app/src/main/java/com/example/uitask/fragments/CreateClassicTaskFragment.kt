@@ -1,12 +1,15 @@
 package com.example.uitask.fragments
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.speech.RecognizerIntent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -26,6 +29,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Date
+import java.util.Locale
 
 @AndroidEntryPoint
 class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task) {
@@ -76,44 +80,6 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
         observeDateValue()
     }
 
-    private fun observeDateValue() {
-        lifecycleScope.launch {
-            viewModel.dateLiveDate.collect {
-                when (it) {
-                    is Resource.Unspecified -> {
-                        binding.apply {
-                            startDateTv.visibility = View.GONE
-                            startDateIv.visibility = View.GONE
-
-                            verticalDotsView.visibility = View.GONE
-
-                            endDateTv.visibility = View.GONE
-                            endOval.visibility = View.GONE
-                        }
-                    }
-
-                    is Resource.Error -> {}
-
-                    is Resource.Loading -> {}
-
-                    is Resource.Success -> {
-                        binding.apply {
-                            startDateTv.visibility = View.VISIBLE
-                            startDateTv.text = it.data?.first
-                            startDateIv.visibility = View.VISIBLE
-
-                            verticalDotsView.visibility = View.VISIBLE
-
-                            endDateTv.text = it.data?.second
-                            endDateTv.visibility = View.VISIBLE
-                            endOval.visibility = View.VISIBLE
-                        }
-                    }
-                }
-            }
-        }
-
-    }
 
     private fun addCallbacks(view: View) {
         binding.apply {
@@ -132,17 +98,69 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
             clPriority.setOnClickListener {
 
             }
-            subjectMicrophoneIv.setOnClickListener {
 
+            subjectMicrophoneIv.setOnClickListener {
+                descriptionMicrophone(subjectResult)
             }
             descriptionMicrophoneIv.setOnClickListener {
-
+                descriptionMicrophone(descriptionResult)
             }
             definitionOfDoneMicrophoneIv.setOnClickListener {
-
+                descriptionMicrophone(definitionResult)
             }
+
         }
     }
+
+    private fun descriptionMicrophone(intentLauncher: ActivityResultLauncher<Intent>) {
+        try {
+            val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+            intent.putExtra(
+                RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+            )
+            intent.putExtra(
+                RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault()
+            )
+            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.speechToText))
+            intentLauncher.launch(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private val descriptionResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val results = result.data?.getStringArrayListExtra(
+                    RecognizerIntent.EXTRA_RESULTS
+                ) as ArrayList<String>
+                binding.descriptionValueEd.append(" " + results[0])
+            }
+        }
+
+
+    private val subjectResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val results = result.data?.getStringArrayListExtra(
+                    RecognizerIntent.EXTRA_RESULTS
+                ) as ArrayList<String>
+
+                binding.subjectValueEd.append(" " + results[0])
+            }
+        }
+
+    private val definitionResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val results = result.data?.getStringArrayListExtra(
+                    RecognizerIntent.EXTRA_RESULTS
+                ) as ArrayList<String>
+
+                binding.definitionValueEd.append(" " + results[0])
+            }
+        }
+
 
     private fun selectAttachment() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
@@ -196,12 +214,50 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
         // Setting up the event for when back button is pressed
         datePicker.addOnCancelListener {
-            Toast.makeText(requireContext(), "Date Picker Cancelled", Toast.LENGTH_LONG)
-                .show()
+            Toast.makeText(requireContext(), "Date Picker Cancelled", Toast.LENGTH_LONG).show()
             Log.d("TIME_DEBUG", "Date Picker Cancelled")
 
         }
         return Pair(startDate, endDate)
+    }
+
+    private fun observeDateValue() {
+        lifecycleScope.launch {
+            viewModel.dateLiveDate.collect {
+                when (it) {
+                    is Resource.Unspecified -> {
+                        binding.apply {
+                            startDateTv.visibility = View.GONE
+                            startDateIv.visibility = View.GONE
+
+                            verticalDotsView.visibility = View.GONE
+
+                            endDateTv.visibility = View.GONE
+                            endOval.visibility = View.GONE
+                        }
+                    }
+
+                    is Resource.Error -> {}
+
+                    is Resource.Loading -> {}
+
+                    is Resource.Success -> {
+                        binding.apply {
+                            startDateTv.visibility = View.VISIBLE
+                            startDateTv.text = it.data?.first
+                            startDateIv.visibility = View.VISIBLE
+
+                            verticalDotsView.visibility = View.VISIBLE
+
+                            endDateTv.text = it.data?.second
+                            endDateTv.visibility = View.VISIBLE
+                            endOval.visibility = View.VISIBLE
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
     private fun tasksComposition(): Task {

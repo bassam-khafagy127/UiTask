@@ -47,4 +47,7 @@
     <string name="apply">Apply</string>
     <string name="cancel">Cancel</string>
     <string name="taskSign">T-</string>
+
+    <string name="speechToText">Please say the script</string>
+
 </resources>
