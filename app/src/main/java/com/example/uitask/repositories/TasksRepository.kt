@@ -6,9 +6,7 @@ import javax.inject.Inject
 
 class TasksRepository @Inject constructor(private val taskedInAppDataBase: TaskedInAppDataBase) {
 
-    suspend fun insertTask(task: Task) {
-        taskedInAppDataBase.tasksDao().insertTask(task)
-    }
+    suspend fun insertTask(task: Task) = taskedInAppDataBase.tasksDao().insertTask(task)
 
     suspend fun getAllTasks() = taskedInAppDataBase.tasksDao().getAllTasks()
 

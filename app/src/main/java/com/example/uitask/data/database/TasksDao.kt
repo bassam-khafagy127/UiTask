@@ -8,7 +8,7 @@ import com.example.uitask.data.local.Task
 @Dao
 interface TasksDao {
     @Insert
-    suspend fun insertTask(task: Task)
+    suspend fun insertTask(task: Task): Long
 
     @Query("SELECT*FROM `Tasks Table` ORDER BY id")
     suspend fun getAllTasks(): List<Task>

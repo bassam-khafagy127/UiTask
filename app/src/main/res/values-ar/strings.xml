@@ -46,4 +46,6 @@
     <string name="cancel">إلغاء</string>
     <string name="taskSign">ت-</string>
     <string name="speechToText">من فضلك قم بهجائي النص</string>
+    <string name="task_inserted_successfully">تم إضافة المهمة بنجاح</string>
+    <string name="close">إغلاق</string>
 </resources>

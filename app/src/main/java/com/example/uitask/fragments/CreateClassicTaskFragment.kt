@@ -22,6 +22,7 @@ import com.example.uitask.util.RegisterValidation
 import com.example.uitask.util.Resource
 import com.example.uitask.util.checkTask
 import com.example.uitask.util.dateConverter
+import com.example.uitask.util.showSuccessToast
 import com.example.uitask.viewModel.TasksViewModel
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
@@ -42,6 +43,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
     private var endDate: String = ""
 
     private var selectedAttachment = ""
+
 
     private val selectAttachmentActivityResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -78,6 +80,25 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
         super.onViewCreated(view, savedInstanceState)
         addCallbacks(view)
         observeDateValue()
+        observeInsertionState(view)
+    }
+
+    private fun observeInsertionState(view: View) {
+        lifecycleScope.launch {
+            viewModel.insertionState.collect {
+                when (it) {
+                    is Resource.Loading -> {}
+
+                    is Resource.Error -> {}
+
+                    is Resource.Success -> {
+                        showSuccessToast(requireContext())
+                    }
+
+                    is Resource.Unspecified -> {}
+                }
+            }
+        }
     }
 
 

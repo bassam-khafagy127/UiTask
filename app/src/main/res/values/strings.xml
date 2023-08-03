@@ -49,5 +49,7 @@
     <string name="taskSign">T-</string>
 
     <string name="speechToText">Please say the script</string>
+    <string name="task_inserted_successfully">Task inserted successfully</string>
+    <string name="close">Close</string>
 
 </resources>

@@ -25,9 +25,19 @@ class TasksViewModel @Inject constructor(private val repository: TasksRepository
         MutableSharedFlow<Resource<Pair<String, String>>>()
     val dateLiveDate = _dateLiveDate.asSharedFlow()
 
+    private val _insertionState =
+        MutableSharedFlow<Resource<String>>()
+    val insertionState = _insertionState.asSharedFlow()
+
+
     suspend fun insertTask(task: Task) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertTask(task)
+            _insertionState.emit(Resource.Loading())
+            if (repository.insertTask(task) > 0) {
+                _insertionState.emit(Resource.Success("Data inserted successfully"))
+            } else {
+                _insertionState.emit(Resource.Error("Data not inserted"))
+            }
         }
     }
 
