@@ -74,6 +74,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
             }
         }
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -109,19 +110,23 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
             }
 
             clPriority.setOnClickListener {
-                getPriority()
+                setPriority()
             }
 
             subjectMicrophoneIv.setOnClickListener {
-                descriptionMicrophone(subjectResult)
+                speechToText(subjectResult)
             }
             descriptionMicrophoneIv.setOnClickListener {
-                descriptionMicrophone(descriptionResult)
+                speechToText(descriptionResult)
             }
             definitionOfDoneMicrophoneIv.setOnClickListener {
-                descriptionMicrophone(definitionResult)
+                speechToText(definitionResult)
             }
 
+            clRecordVoice.setOnClickListener {
+                Toast.makeText(requireContext(), "Voice Recording Coming Soon", Toast.LENGTH_SHORT)
+                    .show()
+            }
             assigneesCl.setOnClickListener {
                 setAssignees()
             }
@@ -185,17 +190,15 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
         // Setting up the event for when back button is pressed
         datePicker.addOnCancelListener {
-            Toast.makeText(requireContext(), "Date Picker Cancelled", Toast.LENGTH_LONG).show()
             Log.d("TIME_DEBUG", "Date Picker Cancelled")
-
         }
         return Pair(startDate, endDate)
     }
 
 
-    private fun getPriority() {
+    private fun setPriority() {
         val alertDialog = AlertDialog.Builder(requireContext())
-        alertDialog.setTitle("Chose Priority")
+        alertDialog.setTitle(getString(R.string.getPriority))
         alertDialog.setPositiveButton(getString(R.string.ok), null)
         val items = arrayOf("High", "Mid", "Low")
         val checkItem = 1
@@ -223,7 +226,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
     }
 
 
-    private fun descriptionMicrophone(intentLauncher: ActivityResultLauncher<Intent>) {
+    private fun speechToText(intentLauncher: ActivityResultLauncher<Intent>) {
         try {
             val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
             intent.putExtra(

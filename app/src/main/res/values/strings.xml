@@ -61,5 +61,6 @@
     <string name="expected_working_hoursWarning">Expected working hours can\'t be empty!!</string>
     <string name="repeatWarning">repeated option  can\'t be empty!!</string>
     <string name="priorityWarning">Priority field can\'t be empty!!</string>
+    <string name="getPriority">Chose Priority</string>
 
 </resources>
