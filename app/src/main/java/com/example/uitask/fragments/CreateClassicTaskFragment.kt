@@ -74,7 +74,6 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
             }
         }
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -110,23 +109,19 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
             }
 
             clPriority.setOnClickListener {
-                setPriority()
+                getPriority()
             }
 
             subjectMicrophoneIv.setOnClickListener {
-                speechToText(subjectResult)
+                descriptionMicrophone(subjectResult)
             }
             descriptionMicrophoneIv.setOnClickListener {
-                speechToText(descriptionResult)
+                descriptionMicrophone(descriptionResult)
             }
             definitionOfDoneMicrophoneIv.setOnClickListener {
-                speechToText(definitionResult)
+                descriptionMicrophone(definitionResult)
             }
 
-            clRecordVoice.setOnClickListener {
-                Toast.makeText(requireContext(), "Voice Recording Coming Soon", Toast.LENGTH_SHORT)
-                    .show()
-            }
             assigneesCl.setOnClickListener {
                 setAssignees()
             }
@@ -150,6 +145,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
             is RegisterValidation.Success -> {
                 lifecycleScope.launch(Dispatchers.IO) {
                     viewModel.insertTask(tasksComposition())
+                    clearData()
                 }
             }
         }
@@ -190,15 +186,17 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
         // Setting up the event for when back button is pressed
         datePicker.addOnCancelListener {
+            Toast.makeText(requireContext(), "Date Picker Cancelled", Toast.LENGTH_LONG).show()
             Log.d("TIME_DEBUG", "Date Picker Cancelled")
+
         }
         return Pair(startDate, endDate)
     }
 
 
-    private fun setPriority() {
+    private fun getPriority() {
         val alertDialog = AlertDialog.Builder(requireContext())
-        alertDialog.setTitle(getString(R.string.getPriority))
+        alertDialog.setTitle("Chose Priority")
         alertDialog.setPositiveButton(getString(R.string.ok), null)
         val items = arrayOf("High", "Mid", "Low")
         val checkItem = 1
@@ -226,7 +224,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
     }
 
 
-    private fun speechToText(intentLauncher: ActivityResultLauncher<Intent>) {
+    private fun descriptionMicrophone(intentLauncher: ActivityResultLauncher<Intent>) {
         try {
             val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
             intent.putExtra(
@@ -501,6 +499,17 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
                 }
             }
+        }
+    }
+
+    private fun clearData() {
+        binding.apply {
+            subjectValueEd.text?.clear()
+            descriptionValueEd.text?.clear()
+            definitionValueEd.text?.clear()
+            expectedHoursEd.text?.clear()
+            repeatedHoursEd.text?.clear()
+            todoValueEd.text?.clear()
         }
     }
 }

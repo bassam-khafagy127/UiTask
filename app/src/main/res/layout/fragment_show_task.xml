@@ -207,7 +207,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            tools:text="@string/description"
+            android:text="@string/description"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/twoLine_iv"
             app:layout_constraintTop_toBottomOf="@id/senderRollTv" />
@@ -227,7 +227,7 @@
             android:textSize="16sp"
             android:scrollbars="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/description_tv"
             app:layout_constraintTop_toBottomOf="@id/description_tv"
             tools:text="@string/dummyWarn" />
 
@@ -257,6 +257,7 @@
 
 
         <androidx.appcompat.widget.AppCompatTextView
+
             android:background="@color/transparent"
             android:id="@+id/definitionOfDone_tv"
             style="@style/medium"
@@ -283,7 +284,7 @@
             android:scrollbars="vertical"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/definitionOfDone_tv"
             app:layout_constraintTop_toBottomOf="@id/definitionOfDone_tv"
             tools:text="@string/dummy_defOfDone" />
 
