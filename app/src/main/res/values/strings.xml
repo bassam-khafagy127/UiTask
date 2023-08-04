@@ -53,5 +53,13 @@
     <string name="close">Close</string>
     <string name="ok">Ok</string>
     <string name="choseAssignees">Chose Assignees</string>
+    <string name="no_repeat">No repeat</string>
+    <string name="_1_h">1 H</string>
+    <string name="subjectWarning">subject field can\'t be empty!!</string>
+    <string name="assigneesWarning">Assignees field can\'t be empty!!</string>
+    <string name="dateWarning">Date range can\'t be empty!!</string>
+    <string name="expected_working_hoursWarning">Expected working hours can\'t be empty!!</string>
+    <string name="repeatWarning">repeated option  can\'t be empty!!</string>
+    <string name="priorityWarning">Priority field can\'t be empty!!</string>
 
 </resources>

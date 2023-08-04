@@ -50,4 +50,12 @@
     <string name="close">إغلاق</string>
     <string name="ok">حسنا</string>
     <string name="choseAssignees">إختر المحال إليه</string>
+    <string name="no_repeat">No repeat</string>
+    <string name="_1_h">1 H</string>
+    <string name="subjectWarning">لا يمكن ترك حقل الموضوع فارغًا !!</string>
+    <string name="assigneesWarning">لا يمكن ترك حقل المحال إليه فارغًا !!</string>
+    <string name="dateWarning">لا يمكن ترك حقل نطاق الوقت فارغًا !!</string>
+    <string name="expected_working_hoursWarning">لا يمكن ترك حقل الساعات المتوقعة فارغًا !!</string>
+    <string name="repeatWarning">لا يمكن ترك حقل التكرار فارغًا !!</string>
+    <string name="priorityWarning">لا يمكن ترك حقل الاولوية فارغًا !!</string>
 </resources>

@@ -186,7 +186,7 @@
             android:layout_marginStart="8dp"
             android:maxLength="9"
             android:textSize="14sp"
-            android:text="@{viewModel.taskLiveDate.assignees}"
+            android:text="@{viewModel.taskLiveDate.ccAssignees}"
             app:layout_constraintBottom_toBottomOf="@id/receiver_iv"
             app:layout_constraintStart_toEndOf="@id/receiver_iv"
             app:layout_constraintTop_toTopOf="@id/receiver_iv"

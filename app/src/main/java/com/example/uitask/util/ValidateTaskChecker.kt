@@ -5,7 +5,7 @@ import com.example.uitask.data.local.Task
 fun checkTask(task: Task): RegisterValidation {
 
     if (task.subjectString!!.isEmpty()) {
-        return RegisterValidation.Failed("subject field can't be empty!!")
+        return RegisterValidation.Failed("Subject field can't be empty!!")
     }
 
     if (task.assignees!!.isEmpty()) {
@@ -17,8 +17,12 @@ fun checkTask(task: Task): RegisterValidation {
         return RegisterValidation.Failed("Date range can't be empty!!")
     }
 
-    if (task.expectedWorkingHorus!! < 1) {
+    if (task.expectedWorkingHorus!!.isEmpty()) {
         return RegisterValidation.Failed("Expected working hours can't be empty!!")
+    }
+
+    if (task.repeated!!.isEmpty()) {
+        return RegisterValidation.Failed("repeated option  can't be empty!!")
     }
 
     if (task.priority!!.isEmpty()) {

@@ -17,709 +17,736 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-                        <!-- subject-->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/subjectIconIv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="2dp"
-                                android:scaleType="center"
-                                android:src="@drawable/ic_text"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/subjectFieldTv"
-                                style="@style/regular"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:gravity="center"
-                                android:text="@string/subject"
-                                android:textColor="@color/textColorBlack"
-                                android:textSize="16sp"
-                                app:layout_constraintBottom_toBottomOf="@id/subjectIconIv"
-                                app:layout_constraintStart_toEndOf="@id/subjectIconIv"
-                                app:layout_constraintTop_toTopOf="@id/subjectIconIv" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/subject_stateTv"
-                                style="@style/medium"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:gravity="bottom"
-                                android:text="@string/required"
-                                android:textColor="@color/violetBtnColors"
-                                android:textSize="12sp"
-                                app:layout_constraintBottom_toTopOf="@id/subjectValue_ed"
-                                app:layout_constraintStart_toEndOf="@id/subjectFieldTv"
-                                app:layout_constraintTop_toTopOf="@id/subjectFieldTv" />
-
-                            <androidx.appcompat.widget.AppCompatEditText
-                                android:id="@+id/subjectValue_ed"
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_marginTop="2dp"
-                                android:layout_marginEnd="6dp"
-                                android:layout_marginBottom="6dp"
-                                android:background="@color/transparent"
-                                android:hint="@string/subject"
-                                android:textColor="@color/hintTextColor"
-                                android:textSize="14sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@id/subjectMicrophone_Iv"
-                                app:layout_constraintStart_toStartOf="@id/subjectFieldTv"
-                                app:layout_constraintTop_toBottomOf="@id/subjectFieldTv" />
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/subjectMicrophone_Iv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                android:src="@drawable/ic_microphone"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:layout_marginTop="2dp"
-                            android:background="@color/hintTextColor" />
-
-                        <!-- description-->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="6dp">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/descriptionIconIv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="2dp"
-                                android:scaleType="center"
-                                android:src="@drawable/ic_menu"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/descriptionFieldTv"
-                                style="@style/regular"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:gravity="center"
-                                android:text="@string/description"
-                                android:textColor="@color/textColorBlack"
-                                android:textSize="16sp"
-                                app:layout_constraintBottom_toBottomOf="@id/descriptionIconIv"
-                                app:layout_constraintStart_toEndOf="@id/descriptionIconIv"
-                                app:layout_constraintTop_toTopOf="@id/descriptionIconIv" />
-
-                            <androidx.appcompat.widget.AppCompatEditText
-                                android:id="@+id/descriptionValue_ed"
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_marginTop="6dp"
-                                android:layout_marginEnd="6dp"
-                                android:layout_marginBottom="6dp"
-                                android:background="@color/transparent"
-                                android:hint="@string/description"
-                                android:textColor="@color/hintTextColor"
-                                android:textSize="14sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@id/textCase_state"
-                                app:layout_constraintStart_toStartOf="@id/descriptionFieldTv"
-                                app:layout_constraintTop_toBottomOf="@id/descriptionFieldTv" />
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/textCase_state"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                android:src="@drawable/ic_smallcaps"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@id/descriptionMicrophone_Iv" />
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/descriptionMicrophone_Iv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                android:src="@drawable/ic_microphone"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:layout_marginTop="4dp"
-                            android:background="@color/hintTextColor" />
-
-                        <!-- definition of don -->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/definitionOfDoneIconIv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="6dp"
-                                android:scaleType="center"
-                                android:src="@drawable/ic_menu"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/definitionOfDoneFieldTv"
-                                style="@style/regular"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:gravity="center"
-                                android:text="@string/definition_of_done"
-                                android:textColor="@color/textColorBlack"
-                                android:textSize="16sp"
-                                app:layout_constraintBottom_toBottomOf="@id/definitionOfDoneIconIv"
-                                app:layout_constraintStart_toEndOf="@id/definitionOfDoneIconIv"
-                                app:layout_constraintTop_toTopOf="@id/definitionOfDoneIconIv" />
-
-                            <androidx.appcompat.widget.AppCompatEditText
-                                android:id="@+id/definitionValue_ed"
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_marginTop="6dp"
-                                android:layout_marginEnd="6dp"
-                                android:layout_marginBottom="6dp"
-                                android:background="@color/transparent"
-                                android:hint="@string/description"
-                                android:textColor="@color/hintTextColor"
-                                android:textSize="14sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@id/definitionOfDone_textCase_state"
-                                app:layout_constraintStart_toStartOf="@id/definitionOfDoneFieldTv"
-                                app:layout_constraintTop_toBottomOf="@id/definitionOfDoneFieldTv" />
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/definitionOfDone_textCase_state"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                android:src="@drawable/ic_smallcaps"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@id/definitionOfDoneMicrophone_Iv" />
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/definitionOfDoneMicrophone_Iv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                android:src="@drawable/ic_microphone"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:layout_marginTop="2dp"
-                            android:layout_marginBottom="4dp"
-                            android:background="@color/hintTextColor" />
-
-                        <!-- record -->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/recordNoteIconIv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="2dp"
-                                android:scaleType="center"
-                                android:src="@drawable/ic_microphone"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/recordNoteFieldTv"
-                                style="@style/regular"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="2dp"
-                                android:gravity="start"
-                                android:text="@string/record_note"
-                                android:textColor="@color/textColorBlack"
-                                android:textSize="16sp"
-                                app:layout_constraintBottom_toBottomOf="@id/recordNoteIconIv"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/recordNoteIconIv"
-                                app:layout_constraintTop_toTopOf="@id/recordNoteIconIv" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="14dp"
-                            android:background="@color/hintTextColor" />
-
-                        <!-- assignees-->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/assigneesCl"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/assigneesIconIv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="4dp"
-                                android:scaleType="center"
-                                android:src="@drawable/ic_two_persons"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/assigneesFieldTv"
-                                style="@style/regular"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="4dp"
-                                android:gravity="center"
-                                android:text="@string/assignees"
-                                android:textColor="@color/textColorBlack"
-                                android:textSize="16sp"
-                                app:layout_constraintBottom_toBottomOf="@id/assigneesIconIv"
-                                app:layout_constraintStart_toEndOf="@id/assigneesIconIv"
-                                app:layout_constraintTop_toTopOf="@id/assigneesIconIv" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/assigneesFieldStateTv"
-                                style="@style/medium"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:gravity="bottom"
-                                android:text="@string/required"
-                                android:textColor="@color/violetBtnColors"
-                                android:textSize="12sp"
-                                app:layout_constraintBottom_toBottomOf="@id/assigneesFieldTv"
-                                app:layout_constraintStart_toEndOf="@id/assigneesFieldTv"
-                                app:layout_constraintTop_toTopOf="@id/assigneesFieldTv" />
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/assigneesValue_Id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_12sdp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="6dp"
-                                android:background="@color/transparent"
-                                android:hint="@string/description"
-                                android:src="@drawable/ic_add_person"
-                                android:textSize="14sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="@id/assigneesFieldTv"
-                                app:layout_constraintTop_toBottomOf="@id/assigneesFieldTv" />
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/assignees_cl_user"
-                                android:layout_width="wrap_content"
-                                android:layout_height="50dp"
-                                android:layout_marginTop="@dimen/_12sdp"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginBottom="6dp"
-                                android:visibility="gone"
-                                android:paddingHorizontal="16dp"
-                                android:background="@drawable/bg_assignees_40radious"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="@id/assigneesFieldTv"
-                                app:layout_constraintTop_toBottomOf="@id/assigneesFieldTv">
-
-                                <androidx.appcompat.widget.AppCompatImageView
-                                    android:id="@+id/assignees_iv_user"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/gray_oval"
-                                    android:backgroundTint="@color/violetBtnColors"
-                                    android:padding="4dp"
-                                    android:visibility="gone"
-                                    android:src="@drawable/ic_profile"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/assignees_tv_user"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:maxLength="65"
-                                    android:visibility="gone"
-                                    android:textColor="@color/gray"
-                                    app:layout_constraintBottom_toBottomOf="@id/assignees_iv_user"
-                                    app:layout_constraintStart_toEndOf="@id/assignees_iv_user"
-                                    app:layout_constraintTop_toTopOf="@id/assignees_iv_user"
-                                    tools:text="Ola ahmed zahe" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="16dp"
-                            android:background="@color/hintTextColor" />
-
-                        <!-- cc assignees-->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/ccAssigneesIconIv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="20dp"
-                                android:scaleType="center"
-                                android:src="@drawable/ic_cc_assignees"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/ccAssigneesFieldTv"
-                                style="@style/regular"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="2dp"
-                                android:gravity="center"
-                                android:text="@string/cc_assignees"
-                                android:textColor="@color/textColorBlack"
-                                android:textSize="16sp"
-                                app:layout_constraintBottom_toBottomOf="@id/ccAssigneesIconIv"
-                                app:layout_constraintStart_toEndOf="@id/ccAssigneesIconIv"
-                                app:layout_constraintTop_toTopOf="@id/ccAssigneesIconIv" />
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/ccAssigneesValue_ed"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_12sdp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="6dp"
-                                android:background="@color/transparent"
-                                android:hint="@string/description"
-                                android:src="@drawable/ic_add_person"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="@id/ccAssigneesFieldTv"
-                                app:layout_constraintTop_toBottomOf="@id/ccAssigneesFieldTv" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="14dp"
-                            android:background="@color/hintTextColor" />
-
-                        <!-- date-->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/cl_date"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/dateIconIv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="2dp"
-                                android:scaleType="center"
-                                android:src="@drawable/ic_calender"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/dateFieldTv"
-                                style="@style/regular"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="2dp"
-                                android:gravity="center"
-                                android:text="@string/date_time"
-                                android:textColor="@color/textColorBlack"
-                                android:textSize="16sp"
-                                app:layout_constraintBottom_toBottomOf="@id/dateIconIv"
-                                app:layout_constraintStart_toEndOf="@id/dateIconIv"
-                                app:layout_constraintTop_toTopOf="@id/dateIconIv" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/dateFieldStateTv"
-                                style="@style/medium"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:gravity="bottom"
-                                android:text="@string/required"
-                                android:textColor="@color/violetBtnColors"
-                                android:textSize="12sp"
-                                app:layout_constraintBottom_toBottomOf="@id/dateFieldTv"
-                                app:layout_constraintStart_toEndOf="@id/dateFieldTv"
-                                app:layout_constraintTop_toTopOf="@id/dateFieldTv" />
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/startDate_iv"
-                                android:layout_width="8dp"
-                                android:layout_height="8dp"
-                                android:layout_marginTop="16dp"
-                                android:visibility="gone"
-
-                                android:src="@drawable/gray_oval"
-                                app:layout_constraintStart_toStartOf="@id/dateFieldTv"
-                                app:layout_constraintTop_toBottomOf="@id/dateIconIv" />
-
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/startDate_tv"
-                                android:layout_width="wrap_content"
-                                android:visibility="gone"
-
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                app:layout_constraintBottom_toBottomOf="@id/startDate_iv"
-                                app:layout_constraintStart_toEndOf="@id/startDate_iv"
-                                app:layout_constraintTop_toTopOf="@id/startDate_iv"
-                                tools:text="@string/dummyDAte2" />
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/vertical_dots_view"
-                                android:layout_width="@dimen/_6sdp"
-                                android:layout_height="32dp"
-                                android:layout_marginTop="8dp"
-                                android:visibility="gone"
-
-                                android:layout_marginBottom="8dp"
-                                android:src="@drawable/vertical_dots"
-                                app:layout_constraintBottom_toTopOf="@id/end_oval"
-                                app:layout_constraintEnd_toEndOf="@id/startDate_iv"
-                                app:layout_constraintStart_toStartOf="@id/startDate_iv"
-                                app:layout_constraintTop_toBottomOf="@id/startDate_iv" />
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/end_oval"
-                                android:layout_width="@dimen/_6sdp"
-                                android:layout_height="@dimen/_6sdp"
-                                android:layout_marginTop="4dp"
-                                android:layout_marginBottom="16dp"
-                                android:visibility="gone"
-
-                                android:src="@drawable/red_oval"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="@id/startDate_iv" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/endDate_tv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:visibility="gone"
-
-                                app:layout_constraintBottom_toBottomOf="@id/end_oval"
-                                app:layout_constraintStart_toEndOf="@id/end_oval"
-                                app:layout_constraintTop_toTopOf="@id/end_oval"
-                                tools:text="@string/dummyDAte2" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="14dp"
-                            android:background="@color/hintTextColor" />
-
-                        <!-- Expected working hours-->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/cl_Expected_working_hours"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/expected_working_hoursIconIv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="2dp"
-                                android:scaleType="center"
-                                android:src="@drawable/ic_sand_clock"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/expected_working_hoursFieldTv"
-                                style="@style/regular"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="2dp"
-                                android:gravity="center"
-                                android:text="@string/expected_working_hours"
-                                android:textColor="@color/textColorBlack"
-                                android:textSize="16sp"
-                                app:layout_constraintBottom_toBottomOf="@id/expected_working_hoursIconIv"
-                                app:layout_constraintStart_toEndOf="@id/expected_working_hoursIconIv"
-                                app:layout_constraintTop_toTopOf="@id/expected_working_hoursIconIv" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/expected_working_hoursFieldStateTv"
-                                style="@style/medium"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:gravity="bottom"
-                                android:text="@string/required"
-                                android:textColor="@color/violetBtnColors"
-                                android:textSize="12sp"
-                                app:layout_constraintBottom_toBottomOf="@id/expected_working_hoursFieldTv"
-                                app:layout_constraintStart_toEndOf="@id/expected_working_hoursFieldTv"
-                                app:layout_constraintTop_toTopOf="@id/expected_working_hoursFieldTv" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="14dp"
-                            android:background="@color/hintTextColor" />
-
-
-                        <!-- Repeat-->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/cl_Repeat"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/repeatIconIv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="2dp"
-                                android:scaleType="center"
-                                android:src="@drawable/ic_repeat"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/repeatFieldTv"
-                                style="@style/regular"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="2dp"
-                                android:gravity="center"
-                                android:text="@string/repeat"
-                                android:textColor="@color/textColorBlack"
-                                android:textSize="16sp"
-                                app:layout_constraintBottom_toBottomOf="@id/repeatIconIv"
-                                app:layout_constraintStart_toEndOf="@id/repeatIconIv"
-                                app:layout_constraintTop_toTopOf="@id/repeatIconIv" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/repeatFieldStateTv"
-                                style="@style/medium"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:gravity="bottom"
-                                android:text="@string/required"
-                                android:textColor="@color/violetBtnColors"
-                                android:textSize="12sp"
-                                app:layout_constraintBottom_toBottomOf="@id/repeatFieldTv"
-                                app:layout_constraintStart_toEndOf="@id/repeatFieldTv"
-                                app:layout_constraintTop_toTopOf="@id/repeatFieldTv" />
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:layout_constraintEnd_toEndOf="@id/repeatFieldTv"
-                                app:layout_constraintStart_toStartOf="@id/repeatFieldTv"
-                                app:layout_constraintTop_toBottomOf="@id/repeatFieldTv"
-                                tools:text="1 H" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <!--            <View-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="@dimen/_1sdp"-->
-            <!--                android:layout_marginTop="16dp"-->
-            <!--                android:layout_marginBottom="14dp"-->
-            <!--                android:background="@color/splitterViewColor" />-->
-            <!---->
-            <!--            &lt;!&ndash; repeat &ndash;&gt;-->
-            <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-            <!--                android:id="@+id/cl_repeatTimer"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginTop="2dp">-->
-
-            <!--                <androidx.appcompat.widget.AppCompatImageView-->
-            <!--                    android:id="@+id/repeatCIconIv"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_marginStart="16dp"-->
-            <!--                    android:layout_marginTop="2dp"-->
-            <!--                    android:scaleType="center"-->
-            <!--                    android:src="@drawable/ic_timer"-->
-            <!--                    app:layout_constraintStart_toStartOf="parent"-->
-            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
-
-            <!--                <androidx.appcompat.widget.AppCompatTextView-->
-            <!--                    android:id="@+id/repeatCFieldTv"-->
-            <!--                    style="@style/regular"-->
-            <!--                    android:layout_width="0dp"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_marginStart="8dp"-->
-            <!--                    android:layout_marginTop="2dp"-->
-            <!--                    android:gravity="start"-->
-            <!--                    android:text="@string/record_note"-->
-            <!--                    android:textColor="@color/textColorBlack"-->
-            <!--                    android:textSize="16sp"-->
-            <!--                    app:layout_constraintBottom_toBottomOf="@id/repeatCIconIv"-->
-            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                    app:layout_constraintStart_toEndOf="@id/repeatCIconIv"-->
-            <!--                    app:layout_constraintTop_toTopOf="@id/repeatCIconIv" />-->
-
-            <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <!-- subject-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/subjectIconIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="2dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/subjectFieldTv"
+                    style="@style/regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:text="@string/subject"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/subjectIconIv"
+                    app:layout_constraintStart_toEndOf="@id/subjectIconIv"
+                    app:layout_constraintTop_toTopOf="@id/subjectIconIv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/subject_stateTv"
+                    style="@style/medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:gravity="bottom"
+                    android:text="@string/required"
+                    android:textColor="@color/violetBtnColors"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@id/subjectValue_ed"
+                    app:layout_constraintStart_toEndOf="@id/subjectFieldTv"
+                    app:layout_constraintTop_toTopOf="@id/subjectFieldTv" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/subjectValue_ed"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/subject"
+                    android:textColor="@color/hintTextColor"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/subjectMicrophone_Iv"
+                    app:layout_constraintStart_toStartOf="@id/subjectFieldTv"
+                    app:layout_constraintTop_toBottomOf="@id/subjectFieldTv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/subjectMicrophone_Iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@drawable/ic_microphone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="2dp"
+                android:background="@color/hintTextColor" />
+
+            <!-- description-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/descriptionIconIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="2dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_menu"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/descriptionFieldTv"
+                    style="@style/regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:text="@string/description"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/descriptionIconIv"
+                    app:layout_constraintStart_toEndOf="@id/descriptionIconIv"
+                    app:layout_constraintTop_toTopOf="@id/descriptionIconIv" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/descriptionValue_ed"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/description"
+                    android:textColor="@color/hintTextColor"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/textCase_state"
+                    app:layout_constraintStart_toStartOf="@id/descriptionFieldTv"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionFieldTv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/textCase_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@drawable/ic_smallcaps"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/descriptionMicrophone_Iv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/descriptionMicrophone_Iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@drawable/ic_microphone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="4dp"
+                android:background="@color/hintTextColor" />
+
+            <!-- definition of don -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/definitionOfDoneIconIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="6dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_menu"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/definitionOfDoneFieldTv"
+                    style="@style/regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:text="@string/definition_of_done"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/definitionOfDoneIconIv"
+                    app:layout_constraintStart_toEndOf="@id/definitionOfDoneIconIv"
+                    app:layout_constraintTop_toTopOf="@id/definitionOfDoneIconIv" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/definitionValue_ed"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/description"
+                    android:textColor="@color/hintTextColor"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/definitionOfDone_textCase_state"
+                    app:layout_constraintStart_toStartOf="@id/definitionOfDoneFieldTv"
+                    app:layout_constraintTop_toBottomOf="@id/definitionOfDoneFieldTv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/definitionOfDone_textCase_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@drawable/ic_smallcaps"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/definitionOfDoneMicrophone_Iv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/definitionOfDoneMicrophone_Iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@drawable/ic_microphone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/hintTextColor" />
+
+            <!-- record -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/recordNoteIconIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="2dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_microphone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/recordNoteFieldTv"
+                    style="@style/regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:gravity="start"
+                    android:text="@string/record_note"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/recordNoteIconIv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/recordNoteIconIv"
+                    app:layout_constraintTop_toTopOf="@id/recordNoteIconIv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="14dp"
+                android:background="@color/hintTextColor" />
+
+            <!-- assignees-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/assigneesCl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/assigneesIconIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_two_persons"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/assigneesFieldTv"
+                    style="@style/regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="@string/assignees"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/assigneesIconIv"
+                    app:layout_constraintStart_toEndOf="@id/assigneesIconIv"
+                    app:layout_constraintTop_toTopOf="@id/assigneesIconIv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/assigneesFieldStateTv"
+                    style="@style/medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:gravity="bottom"
+                    android:text="@string/required"
+                    android:textColor="@color/violetBtnColors"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/assigneesFieldTv"
+                    app:layout_constraintStart_toEndOf="@id/assigneesFieldTv"
+                    app:layout_constraintTop_toTopOf="@id/assigneesFieldTv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/assigneesValue_Id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/description"
+                    android:src="@drawable/ic_add_person"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/assigneesFieldTv"
+                    app:layout_constraintTop_toBottomOf="@id/assigneesFieldTv" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/assignees_cl_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/bg_assignees_40radious"
+                    android:paddingHorizontal="16dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/assigneesFieldTv"
+                    app:layout_constraintTop_toBottomOf="@id/assigneesFieldTv">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/assignees_iv_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/gray_oval"
+                        android:backgroundTint="@color/violetBtnColors"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_profile"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/assignees_tv_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:maxLength="65"
+                        android:textColor="@color/gray"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@id/assignees_iv_user"
+                        app:layout_constraintStart_toEndOf="@id/assignees_iv_user"
+                        app:layout_constraintTop_toTopOf="@id/assignees_iv_user"
+                        tools:text="Ola ahmed zahe" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/hintTextColor" />
+
+            <!-- cc assignees-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ccAssigneesCl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ccAssigneesIconIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_cc_assignees"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ccAssigneesFieldTv"
+                    style="@style/regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:text="@string/cc_assignees"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/ccAssigneesIconIv"
+                    app:layout_constraintStart_toEndOf="@id/ccAssigneesIconIv"
+                    app:layout_constraintTop_toTopOf="@id/ccAssigneesIconIv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ccAssigneesValue_ed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/description"
+                    android:src="@drawable/ic_add_person"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/ccAssigneesFieldTv"
+                    app:layout_constraintTop_toBottomOf="@id/ccAssigneesFieldTv" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ccAssignees_cl_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/bg_assignees_40radious"
+                    android:paddingHorizontal="16dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/ccAssigneesFieldTv"
+                    app:layout_constraintTop_toBottomOf="@id/ccAssigneesFieldTv">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ccAssignees_iv_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/gray_oval"
+                        android:backgroundTint="@color/violetBtnColors"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_profile"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/ccAssignees_tv_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:maxLength="65"
+                        android:textColor="@color/gray"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@id/ccAssignees_iv_user"
+                        app:layout_constraintStart_toEndOf="@id/ccAssignees_iv_user"
+                        app:layout_constraintTop_toTopOf="@id/ccAssignees_iv_user"
+                        tools:text="Ola ahmed zahe" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="14dp"
+                android:background="@color/hintTextColor" />
+
+            <!-- date-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/dateIconIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="2dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_calender"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dateFieldTv"
+                    style="@style/regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:text="@string/date_time"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/dateIconIv"
+                    app:layout_constraintStart_toEndOf="@id/dateIconIv"
+                    app:layout_constraintTop_toTopOf="@id/dateIconIv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dateFieldStateTv"
+                    style="@style/medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:gravity="bottom"
+                    android:text="@string/required"
+                    android:textColor="@color/violetBtnColors"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/dateFieldTv"
+                    app:layout_constraintStart_toEndOf="@id/dateFieldTv"
+                    app:layout_constraintTop_toTopOf="@id/dateFieldTv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/startDate_iv"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/gray_oval"
+
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/dateFieldTv"
+                    app:layout_constraintTop_toBottomOf="@id/dateIconIv" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/startDate_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="8dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/startDate_iv"
+                    app:layout_constraintStart_toEndOf="@id/startDate_iv"
+                    app:layout_constraintTop_toTopOf="@id/startDate_iv"
+                    tools:text="@string/dummyDAte2" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/vertical_dots_view"
+                    android:layout_width="@dimen/_6sdp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+
+                    android:src="@drawable/vertical_dots"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/end_oval"
+                    app:layout_constraintEnd_toEndOf="@id/startDate_iv"
+                    app:layout_constraintStart_toStartOf="@id/startDate_iv"
+                    app:layout_constraintTop_toBottomOf="@id/startDate_iv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/end_oval"
+                    android:layout_width="@dimen/_6sdp"
+                    android:layout_height="@dimen/_6sdp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@drawable/red_oval"
+
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/startDate_iv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/endDate_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:visibility="gone"
+
+                    app:layout_constraintBottom_toBottomOf="@id/end_oval"
+                    app:layout_constraintStart_toEndOf="@id/end_oval"
+                    app:layout_constraintTop_toTopOf="@id/end_oval"
+                    tools:text="@string/dummyDAte2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="14dp"
+                android:background="@color/hintTextColor" />
+
+            <!-- Expected working hours-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_Expected_working_hours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/expected_working_hoursIconIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="2dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_sand_clock"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/expected_working_hoursFieldTv"
+                    style="@style/regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:text="@string/expected_working_hours"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/expected_working_hoursIconIv"
+                    app:layout_constraintStart_toEndOf="@id/expected_working_hoursIconIv"
+                    app:layout_constraintTop_toTopOf="@id/expected_working_hoursIconIv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/expected_working_hoursFieldStateTv"
+                    style="@style/medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:gravity="bottom"
+                    android:text="@string/required"
+                    android:textColor="@color/violetBtnColors"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/expected_working_hoursFieldTv"
+                    app:layout_constraintStart_toEndOf="@id/expected_working_hoursFieldTv"
+                    app:layout_constraintTop_toTopOf="@id/expected_working_hoursFieldTv" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/expected_hours_ed"
+                    style="@style/regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="60dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/_1_h"
+                    android:inputType="number"
+                    android:textColor="@color/hintTextColor"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/expected_working_hoursFieldTv"
+                    app:layout_constraintTop_toBottomOf="@id/expected_working_hoursFieldTv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="14dp"
+                android:background="@color/hintTextColor" />
+
+
+            <!-- Repeat-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_Repeat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/repeatIconIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="2dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_repeat"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/repeatFieldTv"
+                    style="@style/regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:text="@string/repeat"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/repeatIconIv"
+                    app:layout_constraintStart_toEndOf="@id/repeatIconIv"
+                    app:layout_constraintTop_toTopOf="@id/repeatIconIv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/repeatFieldStateTv"
+                    style="@style/medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:gravity="bottom"
+                    android:text="@string/required"
+                    android:textColor="@color/violetBtnColors"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/repeatFieldTv"
+                    app:layout_constraintStart_toEndOf="@id/repeatFieldTv"
+                    app:layout_constraintTop_toTopOf="@id/repeatFieldTv" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/repeated_hours_ed"
+                    style="@style/regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="60dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/no_repeat"
+                    android:textColor="@color/hintTextColor"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/repeatFieldTv"
+                    app:layout_constraintTop_toBottomOf="@id/repeatFieldTv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <View
@@ -844,10 +871,10 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="6dp"
-                    android:textColor="@color/hintTextColor"
-                    android:textSize="14sp"
                     android:background="@color/transparent"
                     android:hint="@string/add_todo"
+                    android:textColor="@color/hintTextColor"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/todoFieldTv"

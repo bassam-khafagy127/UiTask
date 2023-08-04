@@ -37,6 +37,10 @@ class TasksViewModel @Inject constructor(private val repository: TasksRepository
         MutableSharedFlow<String>()
     val assigneesLiveDate = _assigneesLiveDate.asSharedFlow()
 
+    private val _ccAssigneesLiveDate =
+        MutableSharedFlow<String>()
+    val ccAssigneesLiveDate = _ccAssigneesLiveDate.asSharedFlow()
+
     suspend fun insertTask(task: Task) {
         viewModelScope.launch(Dispatchers.IO) {
             _insertionState.emit(Resource.Loading())
@@ -74,6 +78,12 @@ class TasksViewModel @Inject constructor(private val repository: TasksRepository
     fun setAssignees(assignees: String) {
         viewModelScope.launch {
             _assigneesLiveDate.emit(assignees)
+        }
+    }
+
+    fun setCcAssignees(assignees: String) {
+        viewModelScope.launch {
+            _ccAssigneesLiveDate.emit(assignees)
         }
     }
 

@@ -48,7 +48,9 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
     private var priority: String = ""
 
-    private var assignnes: String = ""
+    private var assignees: String = ""
+
+    private var ccAssignees: String = ""
 
     private val selectAttachmentActivityResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -88,6 +90,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
         observeInsertionState()
         observePriorityValue()
         observeAssigneesValue()
+        observeCcAssigneesValue()
     }
 
 
@@ -120,7 +123,10 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
             }
 
             assigneesCl.setOnClickListener {
-                getAssignees()
+                setAssignees()
+            }
+            ccAssigneesCl.setOnClickListener {
+                setCcAssignees()
             }
         }
     }
@@ -267,7 +273,7 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
         }
 
 
-    private fun getAssignees() {
+    private fun setAssignees() {
         val alertDialog = AlertDialog.Builder(requireContext())
         alertDialog.setTitle(getString(R.string.choseAssignees))
         alertDialog.setPositiveButton(getString(R.string.ok), null)
@@ -306,6 +312,45 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
         alertDialog.show()
     }
 
+    private fun setCcAssignees() {
+        val alertDialog = AlertDialog.Builder(requireContext())
+        alertDialog.setTitle(getString(R.string.choseAssignees))
+        alertDialog.setPositiveButton(getString(R.string.ok), null)
+        val items = arrayOf(
+            "Ola Hassan ELrifaey",
+            "Khalid abo elMagd",
+            "Moiz Eldin Elbaksisy",
+            "Ola Khalid ELrifaey",
+        )
+        val checkItem = 1
+        alertDialog.setSingleChoiceItems(items, checkItem) { _: DialogInterface?, which: Int ->
+            run {
+                when (which) {
+                    0 -> {
+                        Log.d("CcAssignees", items[0])
+                        viewModel.setCcAssignees(items[0])
+                    }
+
+                    1 -> {
+                        Log.d("CcAssignees", items[1])
+                        viewModel.setCcAssignees(items[1])
+                    }
+
+                    2 -> {
+                        Log.d("CcAssignees", items[2])
+                        viewModel.setCcAssignees(items[2])
+                    }
+
+                    3 -> {
+                        Log.d("CcAssignees", items[3])
+                        viewModel.setCcAssignees(items[3])
+                    }
+                }
+            }
+        }
+        alertDialog.show()
+    }
+
     private fun tasksComposition(): Task {
 
         val subjectString = binding.subjectValueEd.text?.trim().toString()
@@ -316,13 +361,13 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
 
         val voiceNoteUri = null
 
-        val assigneesString = assignnes
+        val assigneesString = assignees
 
-        val ccAssigneesString = null
+        val ccAssigneesString = ccAssignees
 
-        val expectedHour = 1
+        val expectedHour = binding.expectedHoursEd.text?.trim().toString()
 
-        val repeatedBoolean = false
+        val repeatedBoolean = binding.repeatedHoursEd.text?.trim().toString()
 
         val priorityString = priority
 
@@ -426,13 +471,30 @@ class CreateClassicTaskFragment : Fragment(R.layout.fragment_create_classic_task
         lifecycleScope.launch {
             binding.apply {
                 viewModel.assigneesLiveDate.collect {
-                    assignnes = it
+                    assignees = it
                     assigneesTvUser.text = it
                     assigneesValueId.visibility = View.GONE
 
                     assigneesIvUser.visibility = View.VISIBLE
                     assigneesClUser.visibility = View.VISIBLE
                     assigneesTvUser.visibility = View.VISIBLE
+
+                }
+            }
+        }
+    }
+
+    private fun observeCcAssigneesValue() {
+        lifecycleScope.launch {
+            binding.apply {
+                viewModel.ccAssigneesLiveDate.collect {
+                    ccAssignees = it
+                    ccAssigneesTvUser.text = it
+                    assigneesValueId.visibility = View.GONE
+
+                    ccAssigneesIvUser.visibility = View.VISIBLE
+                    ccAssigneesClUser.visibility = View.VISIBLE
+                    ccAssigneesTvUser.visibility = View.VISIBLE
 
                 }
             }
